@@ -45,12 +45,13 @@
 				
 			<div id="gnb" class="js-gnb">
 			 	<ul class="depth01">
-			        <form name="booking" action="/I/ko/viewBooking.do" method="POST">	
-	          	 	    <input type="hidden" name="viewBooking" value="">
-	         	     </form>
+
 	  	         	
 	  	         	 <li class="depth01Lists">
-			        	 <a href="javascript:booking();">항공권 예약</a>
+	  	         	 	<form name="booking" action="viewBooking.bo" method="POST">	
+	          	 	    	<input type="hidden" name="viewBooking" value="viewBooking.bo">
+	         	     	</form>
+			        	 <a href="javascript:document.booking.submit();">항공권 예약</a>
 				     		 <ul class="depth02" style="display: none;"></ul>
 	 				</li>
 			
