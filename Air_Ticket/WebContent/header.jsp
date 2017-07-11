@@ -7,27 +7,31 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div id="header" >
 	<div id="headerContent">
 		<div class="hgroup" style="display:block;">
-		 	<h1 class="logo"><a href="#this"><img src="./images/common/img_logo01.png" alt="AIR WILL"></a></h1>
+		 	<h1 class="logo">
+		 	<a href="mainIndex.bo"><img src="./images/common/img_logo01.png" alt="AIR NINE"></a></h1>
 		 
 			 <div class="hrgroup" id="flagLogin">
 			 	<span class="login" id="loginSpan"><a href="#this">로그인</a></span>
-			 	<span class="member"> 
+			 	<span class="member jsHrgroup"> 
 			 		<a href="#this">마이 페이지</a>
 			 		<ul class="hrgroup-list">
-			 			<li><a href="#">나의 쿠폰</a></li>
-			 			<li><a href="#">회원정보 수정</a></li>
-			 			<li><a href="#">회원 탈퇴</a></li>
+			 			<li><a href="#this">나의 스탬프</a></li>
+			 			<li><a href="#this">회원정보 수정</a></li>
+			 			<li><a href="#this">회원 탈퇴</a></li>
 			 		</ul>
 			 	</span>
-			 	<span class="customer">
+			 	<span class="customer jsHrgroup">
 			 		<a href="#">회사 소개</a>
 			 		<ul class="hrgroup-list">
-			 			<li><a href="#">나의 쿠폰</a></li>
-			 			<li><a href="#">회원정보 수정</a></li>
-			 			<li><a href="#">회원 탈퇴</a></li>
+			 			<li><a href="#">개요</a></li>
+			 			<li><a href="#">CEO 인사말</a></li>
+			 			<li><a href="#">기업철학</a></li>
+			 			<li><a href="#">연혁</a></li>
+			 			<li><a href="#">항공기 안내</a></li>
 			 		</ul>
 			 	</span>
 			 </div>
@@ -38,66 +42,118 @@
 					<h1 class="logo"><a href="#"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
 				</div>
 			</div>
-			
-			<div id="gnb" class="gs-gnb">
-				<ul class="depth01">
-					<form>	</form>
-					<li class="depth01Lists">
-						<a href="#">항공권 예약</a>
-						<ul class="depth02" style="display:none;"></ul>
-					</li>
-					<li class="depth01Lists">
-						<a href="#">예약 조회/변경</a>
-						<ul class="depth02" style="display:none;">
-							<li class="depth02Lists"><a href="#">예약 조회/변경/환불</a></li>
-							<li class="depth02Lists"><a href="#">온라인 체크인</a></li>
-						</ul>
-						
-					</li>
-
-					<li class="depth01Lists">
-						<a href="#">서비스 안내</a>
-						<ul class="depth02" style="display:none;">
-							<li class="depth02Lists"><a href="#">항공권 안내</a></li>
-							<li class="depth02Lists"><a href="#">부가 서비스 구매</a></li>
-							<li class="depth02Lists"><a href="#">공항 서비스</a></li>
-							<li class="depth02Lists"><a href="#">기내 서비스</a></li>
-							<li class="depth02Lists"><a href="#">도움이 필요한 고객</a></li>
-							<li class="depth02Lists"><a href="#">모바일 서비스</a></li>
-							<li class="depth02Lists"><a href="#">양식 다운로드</a></li>
-						</ul>
-					</li>
-					
-					<li class="depth01Lists">
-						<a href="#">Travel Information</a>
-						<ul class="depth02" style="display:none;">
-							<li class="depth02Lists"><a href="#">취향지 소개</a></li>
-							<li class="depth02Lists"><a href="#">호텔</a></li>
-							<li class="depth02Lists"><a href="#">렌터카</a></li>
-							<li class="depth02Lists"><a href="#">여행자 보험</a></li>
-						</ul>
-					</li>
-					
-					<li class="depth01Lists">
-						<a href="#">이벤트/새소식</a>
-						<ul class="depth02" style="display:none;">
-							<li class="depth02Lists"><a href="#">이벤트</a></li>
-							<li class="depth02Lists"><a href="#">특가룸</a></li>
-							<li class="depth02Lists"><a href="#">공지사항</a></li>
-							<li class="depth02Lists"><a href="#">미디어룸</a></li>
-						</ul>
-					</li>
-				</ul>
 				
-			</div>
+			<div id="gnb" class="js-gnb">
+			 	<ul class="depth01">
+			        <form name="booking" action="/I/ko/viewBooking.do" method="POST">	
+	          	 	    <input type="hidden" name="viewBooking" value="">
+	         	     </form>
+	  	         	
+	  	         	 <li class="depth01Lists">
+			        	 <a href="javascript:booking();">항공권 예약</a>
+				     		 <ul class="depth02" style="display: none;"></ul>
+	 				</li>
 			
-			<div class="btn-area">
-				<a href="#" id="headerOpen" class="smallheader-btn01" style="display:block;">"주메뉴 열기"</a>
-				<a href="#" id="headerClose" class="smallheader-btn02" style="display:none;">"주메뉴 닫기"</a>
-			</div>
-			
+
+		   	       <li class="depth01Lists">
+		              
+	                      <form name="reservationList1" action="viewReservationList.bo" method="POST">
+	                        <input type="hidden" name="viewReservationList1" value="viewReservationList.bo">
+	                      </form>
+	                      
+	                  
+		   	           <a href="javascript:document.reservationList1.submit();">예약 조회/변경</a>
+		      
+		       
+ 			<ul class="depth02" style="display: none;">
+ 					       <li class="depth02Lists">
+		                              <form name="reservationList2" action="viewReservationList.bo" method="POST">
+		                                <input type="hidden" name="viewReservationList2" value="viewReservationList.bo">
+		                              </form>
+					           <a href="javascript:document.reservationList2.submit();">예약 조회/변경/환불</a>
+					       </li>
+				       <li class="depth02Lists">
+		                              <form name="checkInList" action="viewCheckInList.bo" method="POST">
+		                                <input type="hidden" name="viewCheckInList" value="viewCheckInList.bo">
+		                              </form>
+						           <a href="javascript:document.checkInList.submit();">온라인 체크인</a>
+					       </li>
+			</ul>
+ 		</li>
+		          <li class="depth01Lists">
+		              <a href="Info_FlightMain.bo">서비스 안내</a>
+				<ul class="depth02" style="display: none;">
+    				       <li class="depth02Lists">
+					           <a href="Info_reservation.bo">항공권 안내</a>
+					       </li>
+						       <li class="depth02Lists">
+					           <a href="Opt_Main.bo">부가 서비스 구매</a>
+					       </li>
+						       <li class="depth02Lists">
+					           <a href="/CW/ko/online-check-in.do">공항 서비스</a>
+					       </li>
+						       <li class="depth02Lists">
+					           <a href="/CW/ko/cabin.do">기내 서비스</a>
+					       </li>
+						       <li class="depth02Lists">
+						           <a href="/CW/ko/infant.do">도움이 필요한 고객</a>
+					       </li>
+   				       <li class="depth02Lists">
+						           <a href="/CW/ko/mobile.do">모바일 서비스</a>
+					       </li>
+					       <li class="depth02Lists">
+					           <a href="/CW/ko/download.do">양식 다운로드</a>
+					       </li>
+	 			</ul>
+ 		</li>
+		          <li class="depth01Lists">
+		              <a href="/CW/ko/mint_story.do">Travel Information</a>
+			<ul class="depth02" style="display: none;">
+ 					       <li class="depth02Lists">
+			           <a href="/CW/ko/mint_story.do">취항지 소개</a>
+					       </li>
+						       <li class="depth02Lists">
+					           <a href="javascript:hotel();" title="호텔홈페이지바로가기[새창열림]">호텔</a>
+					       </li>
+							       <li class="depth02Lists">
+					           <a href="javascript:rentcar();" title="렌터카홈페이지바로가기[새창열림]">렌터카</a>
+					       </li>
+					       <li class="depth02Lists">
+					           <a href="/I/ko/viewTravelInsurance.do">여행자보험</a>
+					       </li>
+	 			</ul>
+ 		</li>
+		          <li class="depth01Lists">
+	     <a href="Event_Main.bo">이벤트/새소식</a>
+			<ul class="depth02" style="display: none;">
+    			       <li class="depth02Lists">
+					           <a href="Event_Main.bo">이벤트</a>
+					       </li>
+				       <li class="depth02Lists">
+					           <a href="Event_specialprice.bo">특가존</a>
+					       </li>
+						       <li class="depth02Lists">
+					           <a href="/CW/ko/noticeList.do">공지사항</a>
+					       </li>
+      				       <li class="depth02Lists">
+					           <a href="/CW/ko/printList.do">미디어룸</a>
+					       </li>
+			</ul>
+ 		</li>
+				
+	</ul>
+</div>
+	<!-- S :20161116_타이틀수정_함성재 -->
+	<div class="btn-area">
+	    <a href="#header" id="headerOpen" class="smallheader-btn01" style="display:block;"><!-- 주메뉴열기 -->주메뉴 열기</a>
+	    <a href="#gnb" id="headerClose" class="smallheader-btn02" style="display: none;"><!-- 주메뉴닫기 -->주메뉴 닫기</a>
+	</div>
+	<!-- E : 20161116 타이틀수정_함성재 -->
+
 	</div>
 </div>
+
+
 
 </body>
 </html>
