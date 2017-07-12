@@ -15,7 +15,7 @@
 		 	<a href="mainIndex.bo"><img src="./images/common/img_logo01.png" alt="AIR NINE"></a></h1>
 		 
 			 <div class="hrgroup" id="flagLogin">
-			 	<span class="login" id="loginSpan"><a href="#this">로그인</a></span>
+			 	<span class="login" id="loginSpan"><a href="LoginJoin.bo">로그인</a></span>
 			 	<span class="member jsHrgroup"> 
 			 		<a href="#this">마이 페이지</a>
 			 		<ul class="hrgroup-list">
@@ -25,13 +25,12 @@
 			 		</ul>
 			 	</span>
 			 	<span class="customer jsHrgroup">
-			 		<a href="#">회사 소개</a>
+			 		<a href="Company.bo">회사 소개</a>
 			 		<ul class="hrgroup-list">
-			 			<li><a href="#">개요</a></li>
-			 			<li><a href="#">CEO 인사말</a></li>
-			 			<li><a href="#">기업철학</a></li>
-			 			<li><a href="#">연혁</a></li>
-			 			<li><a href="#">항공기 안내</a></li>
+			 			<li><a href="Company.bo">개요</a></li>
+			 			<li><a href="Company_ceo.bo">CEO 인사말</a></li>
+			 			<li><a href="Company_philo.bo">기업철학</a></li>
+			 			<li><a href="Company_hang.bo">항공기 안내</a></li>
 			 		</ul>
 			 	</span>
 			 </div>
@@ -39,7 +38,7 @@
 			
 			<div id="smallHeader" style="display:none; top:-40px;">
 				<div class="small-head">
-					<h1 class="logo"><a href="#"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
+					<h1 class="logo"><a href="mainIndex.bo"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
 				</div>
 			</div>
 				
