@@ -15,19 +15,22 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/swiper.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/myreservation.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/air_booking.css">
+
     
     <script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
+
     <script type="text/javascript" src="javascripts/jquery.placeholder.js" ></script>
     <script type="text/javascript" src="javascripts/designCommon_onServer.js" ></script>
     <script type="text/javascript" src="javascripts/moment.js"></script>
     <script type="text/javascript" src="javascripts/airs_booking.js"></script>
     <script type="text/javascript" src="javascripts/airs_common.js"></script>
 
+
 </head>
 <body>
 <div id="wrap" class="member">
 
-<jsp:include page="header.jsp"/>
+<jsp:include page="0_header.jsp"/>
 
 	<div id="container" >
 	  	<div id="content" style="">
@@ -73,7 +76,7 @@
 								</colgroup>
 							<tbody>
 								<tr>
-									<th scope="row"><label for="txtUserId" id="TBID">아이디</label><span class="important">*</span></th>
+									<th scope="row"><label for="txtUserId" id="TBID" style="font-weight: bold;">아이디</label><span class="important">*</span></th>
 									<td>
 										<div>
 											<span class="inp-txt"><input type="text" name="txtUserId" style=" border: 1px solid grey; width: 226px;" id="txtUserId" autocomplete="off"></span>
@@ -82,7 +85,7 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row"><label for="txtUserPw1" id="TBPW1">비밀번호</label><span class="important">*</span></th>
+									<th scope="row"><label for="txtUserPw1" id="TBPW1" style="font-weight: bold;">비밀번호</label><span class="important">*</span></th>
 									<td>
 										<div>
 											<span class="inp-txt">
@@ -95,7 +98,7 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row"><label for="txtUserPw2" id="TBPW2">비밀번호 	확인</label><span class="important">*</span></th>
+									<th scope="row"><label for="txtUserPw2" id="TBPW2" style="font-weight: bold;">비밀번호 	확인</label><span class="important">*</span></th>
 									<td>
 										<div>
 											<span class="inp-txt"><input type="password" name="txtUserPw2" style="border: 1px solid grey; width: 226px;" id="txtUserPw2" class="mustBeFilled"></span>
@@ -116,9 +119,9 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<th scope="row" id="KorNameTH">한글 성명<span class="important">*</span></th>
-									<td headers="KorNameTH"><span class="normal_txt" id="korName"><input type="text" name="" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="korName" class="normal_txt" title="한글성명 입력란" placeholder="성명(한글)"></span></td>
-									<th scope="row" id="GenderTH">성별<span class="important">*</span></th>
+									<th scope="row" id="KorNameTH"><label for="txtUserKoname" style="font-weight: bold;">한글 성명</label><span class="important">*</span></th>
+									<td headers="KorNameTH"><span class="inp-txt" id="korName"><input type="text" name="txtUserKoname" style="border: 1px solid grey; width: 226px;  ime-mode: inactive; ime-mode: disabled" id="korName"   title="한글성명 입력란" placeholder="성명(한글)"></span></td>
+									<th scope="row" id="GenderTH"><label style="font-weight: bold;">성별</label><span class="important">*</span></th>
 									<td headers="GenderTH">
 											<select name="GenderTH" id="GenderTH" title="성별 선택" style="width: 120px; padding: 10px; font-size: 15px;">
 													<option value="" selected="selected" class="ex">성별 선택</option>
@@ -130,12 +133,12 @@
 								</tr>
 								<tr>
 									<th scope="row" id="EngNameTH">
-										<span for="txtLastName">영문 성명</span><span class="important">*</span>
+										<label for="txtLastName" style="font-weight: bold;">영문 성명</label><span class="important">*</span>
 									</th>
 									<td colspan="3" headers="EngNameTH">
 										<div>
 											<span class="inp-txt mgr03">
-												<input type="text" name="" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="txtLastName" class="mustBeFilled" title="성 (Last Name) 입력란" placeholder="성 (Last Name)">
+												<input type="text" name="txtLastName" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="txtLastName" class="mustBeFilled" title="성 (Last Name) 입력란" placeholder="성 (Last Name)">
 											</span>
 											<span class="inp-txt">
 												<input type="text" name="" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="txtFirstName" class="mustBeFilled" title="이름 (First Name) 입력란" placeholder="이름 (First Name)">
@@ -145,14 +148,14 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" id="BirthdayTH">생년월일<span class="important">*</span></th>
+									<th scope="row" id="BirthdayTH"><label for="UserBirth" style="font-weight: bold;">생년월일</label><span class="important">*</span></th>
 									<td colspan="3" headers="BirthdayTH">
-										<input type="text" name="" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="dateOfBirth" class="normal_txt" title="생년월일" placeholder="">
+										<span class="inp-txt"><input type="text" name="UserBirth" style="border: 1px solid grey; width: 226px; text-transform: uppercase; ime-mode: inactive; ime-mode: disabled" id="dateOfBirth" class="normal_txt" title="생년월일" placeholder=""></span>
 										<p class="tbl-info">주민등록증상의 생년월일 8자리를 입력해 주세요. 예) 940402-1865430 -> 19940402 </p>										
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" id="NationalityTH"><label for="txtResidenceCountry">국적</label><span class="important">*</span></th>
+									<th scope="row" id="NationalityTH"><label for="txtParentCountry" style="font-weight: bold;">국적</label><span class="important">*</span></th>
 									<td colspan="3" headers="NationalityTH">
 										<div>
 											<span class="inp-txt mgr03">
@@ -163,7 +166,7 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" id="ResidenceCountryTH"><label for="txtResidenceCountry">거주국가</label><span class="important">*</span></th>
+									<th scope="row" id="ResidenceCountryTH"><label for="txtResidenceCountry" style="font-weight: bold;">거주국가</label><span class="important">*</span></th>
 									<td colspan="3" headers="ResidenceCountryTH">
 										<div>
 											<span class="inp-txt mgr03">
@@ -174,14 +177,15 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" id="PhoneNoTH">전화번호<span class="important">*</span></th>
+									<th scope="row" id="PhoneNoTH"><label for="" style="font-weight: bold;">전화번호</label><span class="important">*</span></th>
+									
 									<td colspan="3" headers="PhoneNoTH">
-										<div class="call_number" style="padding-bottom: 15px;">
+										<div class="call_number" style="padding-bottom:10px;">
 											<span class="middle_txt">휴대폰 번호</span> <span class="inp-txt mgr03">
 											<input type="text" id="txtMobileNO0" name="txtMobileNO0" style="border:1px solid grey; width: 74px;" title="휴대폰번호 국가번호 입력" value="" ></span> 
-											<button type="button"  style="height: 35px;"><a href="I/KO/viewLayerCountrySearch" data-opener="numb1" class="btn-type02-col02 mgr03 jsOpenLayer">국가번호 검색</a></button> 
-											<span class="selectbox01 js-selectbox01 mgr03"> 
-											<select name="txtMobileNO1" id="txtMobileNO1" title="휴대폰번호 처음자리" style="width: 80px; padding: 10px; font-size: 15px; onfocus="this.initialSelect = this.selectedIndex;"  onchange="this.selectedIndex = this.initialSelect;">
+											<button type="button"  style="margin-top:2px; height: 35px;" onclick="" class="btn-type02-col02 mgr03 jsOpenLayer">국가번호 검색</button> 
+											<span class="inp-txt mgr03"> 
+											<select name="txtMobileNO1" id="txtMobileNO1" title="휴대폰번호 처음자리" style="border:1px solid grey; width: 80px; padding: 10px; font-size: 15px; onfocus="this.initialSelect = this.selectedIndex;"  onchange="this.selectedIndex = this.initialSelect;">
 													<option value="010" selected="selected">010</option>
 													<option value="011">011</option>
 													<option value="016">016</option>
@@ -199,18 +203,18 @@
 										<div class="call_number">
 											<span class="middle_txt">기타 번호</span> 
 											<span class="inp-txt mgr03"><input type="text" id="txtEtcNo0" name="txtEtcNo0" style="border:1px solid grey; width: 74px;" title="기타번호 국가번호 입력" value="" ></span> 
-											<button type="button" style="height: 35px;"><a href="I/KO/viewLayerCountrySearch" data-opener="numb2" class="btn-type02-col02 mgr03 jsOpenLayer">국가번호 검색</a></button> 
+											<button type="button" style="height: 35px; margin-top:2px;" class="btn-type02-col02 mgr03 jsOpenLayer">국가번호 검색</button> 
 											<span class="inp-txt"><input type="text" name="txtEtcNo1" id="txtEtcNo1" style="border:1px solid grey; width: 252px;" maxlength="20" title="기타번호 입력"></span>
 										</div>
 										<p class="tbl-info">휴대폰 번호, 기타 번호 중 한 가지는 필수 입력해 주시기 바랍니다.</p>
 									</td>
 								</tr>
 								<tr>
-									<th scope="row" id="EmailTH"><span>이메일</span><span class="important">*</span></th>
+									<th scope="row" id="EmailTH"><label for="Useremail" style="font-weight: bold;">이메일</label><span class="important">*</span></th>
 									<td colspan="3" headers="EmailTH">
 										<div>
 											<span class="inp-txt">
-												<input type="text" name="" style="border:1px solid grey; width: 168px;; ime-mode: disabled" id="txtEmail" class="mustBeFilled" title="이메일 입력란">
+												<input type="text" name="Useremail" style="border:1px solid grey; width: 168px;; ime-mode: disabled" id="txtEmail" class="mustBeFilled" title="이메일 입력란">
 											</span> 
 											<span class="middle_txt">@</span> 
 											<span class="inp-txt mgr03">
@@ -313,116 +317,8 @@
 				</div>
 				<div class="btn_article">
 					<ul>
-					<li><button style="height: 35px;" type="button" id="btnJoin" class="btn-type01-col01" data-toggle="modal" data-target="#myModal" onclick="">가입하기</button></li>
-														<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">회원정보 입력내역 확인</h4>
-					</div>
-					<div class="layer_center_type large_type">
-						<div class="layer_area">
-							<div class="layer_inner">
-								<div class="layer_content confirm">
-									<!--  s:내용 -->
-									<div class="input_section first">
-
-										<div class="tbl-input-row01">
-											<table>
-												<colgroup>
-													<col style="width: 23.2%">
-													<col style="width: 26.8%">
-													<col style="width: 23.2%">
-													<col>
-												</colgroup>
-												<tbody>
-													<tr>
-														<th scope="row" id="txtLayerID">아이디</th>
-														<td><span class="normal_txt" id="chkID">ajpacino</span>
-														</td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerKorName">한글 성명</th>
-														<td><span class="normal_txt" id="chkKorName">회원이름뿌려주기</span>
-														</td>
-														<th scope="row" id="txtLayerGender">성별</th>
-														<td><span class="normal_txt" id="chkGender">
-																회원 성별 뿌려주기 </span></td>
-													</tr>
-													<tr id="engNameTR">
-														<th scope="row" id="txtLayerEngName">영문 성명</th>
-														<td colspan="3"><span class="normal_txt"
-															id="chkEngName">영문성명 예) CHO/HYUN</span></td>
-													</tr>
-
-													<tr>
-														<th scope="row" id="txtLayerBrithday">생년월일</th>
-														<td colspan="3"><span class="normal_txt"
-															id="chkBirthDay">회원 주민등록상 생년월일 예)1983.08.13 </span></td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerNationality">국적</th>
-														<td colspan="3"><span class="normal_txt"
-															id="chkNationality">회원국적 뿌려주기 예) 대한민국</span></td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerResidence">거주국가</th>
-														<td colspan="3"><span class="normal_txt" id="chkResidence">회원거주국가 ㅃㄹㅈㄱ ㅇ)대한민국</span></td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerPhoneNo">전화번호</th>
-														<td colspan="3">
-															<ul class="normal_txt">
-																<li class="tt"><strong id="txtLayerMobileNo">휴대폰 번호</strong>
-																<spasn id="chkMobileNO">&nbsp;&nbsp;휴대전화번호 예)+82 010-3542-4938</spasn></li>
-																<li><strong id="txtLayerEtcNo">기타 번호</strong>
-																<spasn id="chkEtcNO">&nbsp;&nbsp;</spasn></li>
-															</ul>
-														</td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerEmail">이메일</th>
-														<td colspan="3"><span class="normal_txt" id="chkEmail">회원이메일@naver.com</span></td>
-													</tr>
-													<tr>
-														<th scope="row" id="txtLayerAgreement">정보 수신동의</th>
-														<td colspan="3">
-															<ul class="normal_txt">
-																<li class="tt"><strong id="txtLayerAgreement01">이메일 수신</strong>
-																<spasn id="chkAgree01">&nbsp;&nbsp;동의하지 않음</spasn></li>
-																<li class="tt"><strong id="txtLayerAgreement02">SMS 수신</strong>
-																<spasn id="chkAgree02">&nbsp;&nbsp;동의하지 않음</spasn></li>
-																<li><strong id="txtLayerAgreement03">제휴사 마케팅 정보</strong>
-																<spasn id="chkAgree03">&nbsp;&nbsp;동의하지 않음</spasn></li>
-															</ul>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="btn_article" style="margin-bottom: 20px;">
-										<ul>
-											<button type="submit" id="btnSubmit" class="btn btn-default" data-dismiss="modal" style="width: 86px;">확 인</button>
-											<button type="reset" id="btnReset" class="btn btn-default" data-dismiss="modal" style="width: 86px;">다시 작성</button>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-						
-						
-						
-						<input type="hidden" href="I/KO/viewLayerMemberInputConfirm" id="confirmInfo" class="jsOpenLayer" datafunc="fn_setForeigner">
+					<li><button style="height: 35px;" type="button" id="btnJoin" class="btn-type01-col01" data-toggle="model" data-target="#myModel" onclick="">가입하기</button></li>
+						<!-- 가입하기 버튼 클릭 후 작성된 데이터 제이쿼리를 활용하여 팝업창으로 출력 -->
 					</ul>
 				</div>
 				<div style="height: 30px;"></div>
@@ -430,10 +326,11 @@
 		</form>
 	</div>
 	</div><!-- container -->
-
+	<jsp:include page="0_footer.jsp"/>
 </div><!-- wrap -->
 </div>
+
 <link rel="stylesheet" type="text/css" href="stylesheets/sub/member.css">
-	<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

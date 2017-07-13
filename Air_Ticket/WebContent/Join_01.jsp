@@ -265,7 +265,7 @@ font-style: normal;
 <body>
 <div id="wrap">
 <header>
-<jsp:include page="header.jsp"/>
+<jsp:include page="0_header.jsp"/>
 </header>
 <div id="container" style="padding-top: 110px;">
 
@@ -691,7 +691,7 @@ font-style: normal;
 		</div>
 </div>
 	</div>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="0_footer.jsp"/>
 
 </body>
 </html>

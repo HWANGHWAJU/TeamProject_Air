@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회사 소개 | 에어 나인</title>
     
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/company.css">  
   <link rel="stylesheet" type="text/css" href="stylesheets/common/common.css">
@@ -31,7 +31,7 @@
     </ul>
 </div>
 <div id="wrap" class="board">
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="0_header.jsp"/>
 	<div>
 <c:set var="com" value="${param.com }"/>
 <c:if test="${com == null }">
@@ -41,7 +41,7 @@
 </div>
 </div>
 <div>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="0_footer.jsp"/>
 </div>
 </body>
 </html>

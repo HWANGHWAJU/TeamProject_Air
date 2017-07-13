@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>메인 | 에어나인</title>
  <link rel="stylesheet" type="text/css" href="stylesheets/main/main.css">
     
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/company.css">  
@@ -37,7 +37,7 @@
 
 
 <div id="wrap" class="main">
-<div id="main_head"><jsp:include page="header.jsp"/></div>
+<div id="main_head"><jsp:include page="0_header.jsp"/></div>
  
  <script type="text/javascript" src="javascripts/mainBanner.js"></script>
 
@@ -781,7 +781,7 @@ mainBanner();
 	</div><!-- content -->
 </div><!-- container -->
 <div>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="0_footer.jsp"/>
 </div>
 </div>
 

@@ -2,12 +2,6 @@
     pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Insert title here</title>
-</head>
-<body>
 	<div id="footer">
 		<div class="footer_inner">
 			<div class="footer-top-list">
@@ -25,7 +19,7 @@
                     <li><a href="#this"><!-- 소비자 안전 관련 정보 공개 -->소비자 안전 관련 정보 공개</a></li>
                     <li><a href="#this"><!-- 운임 및 요금 안내 -->운임 및 요금 안내</a></li>
                 </ul>
-            </div>
+            </div> <!-- footer top list -->
 			
 			<div class="footer_content">
                 <div class="foonter_wd100">
@@ -113,9 +107,9 @@
                                         <span>금호아시아나인재개발원</span>
                                      </li>
                                  </ol>
-                            </div>
-                        </div>
-	                 </div>
+                            </div> <!-- blet list type -->
+                        </div> <!-- family site inner -->
+	                 </div> <!-- family site -->
 	                 
 	                
 	                
@@ -131,7 +125,8 @@
                             <span><a href="https://www.instagram.com/airseoul_official/" target="_blank" title="인스타그램 바로가기 [새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_instagram.png" alt="instagram"></a></span>
                             <span><a href="https://www.youtube.com/airseoul" target="_blank" title="유투브 홈페이지 바로가기[새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_youtube.png" alt="youtube"></a></span>
                         </div>
-                    </div>
+                    </div> <!-- footer uitlMenu -->
+                    
 					<div class="footer-address"> 
 	                    <div class="footer-info-lists">
 	                        <span><!-- 에어서울 주식회사 대표이사 류광희 -->에어서울 주식회사 대표이사 류광희</span>
@@ -149,10 +144,10 @@
 	                        <span><!-- 개인정보관리책임자 경영본부장 상무 조진만 -->개인정보보호책임자 경영본부장 조진만</span>
 	                    </div>
 	                    <p class="copyright">ⓒ AIR SEOUL, Inc. All Rights Reserved.</p>
-	                </div>
-				</div>
+	                </div> <!-- footer address -->
+				</div> <!-- foonter -->
 			</div>
-			
+			 <!-- footer content -->
 			
 		    
 		    
@@ -168,10 +163,11 @@
 		            <li><a href="http://www.kumhoasiana.com/main/main.asp" target="_blank" title="금호아시아나 홈페이지 바로가기[새창열림]"><img src="images/common/img_flyasiana.jpg" alt="금호아시아나"></a></li>
                     
 		        </ul>
-		    </div>
+		    </div> <!-- footer sublog -->
 		    
 		    <!--// 20160706 수정 -->
 		</div>
+		<!-- footer inner -->
 		<div class="scroll-top-btn">
             <button type="button"><img src="images/common/btn_top.gif" alt="페이지 최상단으로 이동"></button>
         </div>
@@ -213,6 +209,4 @@
 	</div>
 	
 <!-- 0526 header div 부분 닫음처리  -->
-</div>
-</body>
-</html>
+

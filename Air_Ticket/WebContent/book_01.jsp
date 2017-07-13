@@ -75,7 +75,7 @@
 			
 			<div id="smallHeader" style="display:block; top:0px;">
 				<div class="small-head">
-					<h1 class="logo"><a href="#"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
+					<h1 class="logo"><a href="mainIndex.bo"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
 				</div>
 			</div>
 				
@@ -767,7 +767,7 @@
 	</div>
 	<!-- booking 영역 end-->
 	<form id="certify" name="certify" method="post" target="_self"></form>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="0_footer.jsp"/>
 
   </div>
 

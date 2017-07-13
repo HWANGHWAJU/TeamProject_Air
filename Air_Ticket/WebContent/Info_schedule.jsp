@@ -1,62 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ko"><head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
-    <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type">
-    <meta http-equiv="X-XSS-Protection" content="0">    
-    <title>온라인 체크인 &lt; 예약 조회/변경 &lt; AIR SEOUL</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/common/favicon.ico">
-    
- <link rel="stylesheet" type="text/css" href="stylesheets/main/main.css">
-    
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/company.css">  
-  <link rel="stylesheet" type="text/css" href="stylesheets/common/common.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/board.css">  
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/service.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/utile.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/swiper.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/myreservation.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/sub/air_booking.css">
-    
-    <script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.placeholder.js" ></script>
-    <script type="text/javascript" src="javascripts/designCommon_onServer.js" ></script>
-    <script type="text/javascript" src="javascripts/moment.js"></script>
-    <script type="text/javascript" src="javascripts/airs_booking.js"></script>
-    <script type="text/javascript" src="javascripts/airs_common.js"></script>
-    <!-- 20160722 추가 -->
-    <link rel="icon" href="images/common/favi_16x16.png" type="image/gif" sizes="16x16">
-    <link rel="icon" href="images/common/favi_32x32.png" type="image/gif" sizes="32x32">
-    <link rel="icon" href="images/common/favi_152x152.png" type="image/gif" sizes="152x152">
-
-
-</head>
-
-
-
-  
-<body style="zoom: 1;">
-<div id="skipNavigation">
-    <ul>
-        <li><a href="#content">본문 바로가기</a></li>
-        <li><a href="#gnb">주메뉴 바로가기</a></li>
-    </ul>
-</div>
-<!-- wrap -->
-
-<div id="wrap" class="myreservation">
-
-
-<div><jsp:include page="header.jsp"/></div>
-
-
-
+<html lang="ko">
 
 
 
@@ -448,16 +393,9 @@
 	<p name="viewLayerLogin" href="I/KO/viewOneLogin" class="jsOpenLayer" style="display:none;"></p>
 
 <!-- wrap -->
-	 
-<!-- 0526 header div 부분 닫음처리  -->
-</div>
-<!-- wrap -->
-
 
 
 
 
 
     <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
-  </body>
-</html>

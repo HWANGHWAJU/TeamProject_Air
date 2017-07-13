@@ -248,7 +248,7 @@ tbody {
 </head>
 <body>
 	<div id="wrap">
-	<header><jsp:include page="header.jsp"/></header>
+	<header><jsp:include page="0_header.jsp"/></header>
 
 	<div id="container" style="padding-top:110px;">
 		<div class="top_lo">
@@ -303,8 +303,8 @@ tbody {
 		</div>
 
 	</div>
-
+<jsp:include page="0_footer.jsp"/>
 </div>
-<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
