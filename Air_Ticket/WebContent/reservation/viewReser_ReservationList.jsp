@@ -1,43 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import ="dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
 
-<script>
-	function sub() {
-		if (document.getElementById("txtLastName").value == "") {
-			alert("성을 입력해 주세요");
-		} else if (document.getElementById("txtFirstName").value == "") {
-			alert("이름을 입력해 주세요");
-		} else if (document.getElementById("txtReservationNumber").value == "") {
-			alert("예약번호를 입력해 주세요");
-		} else if (document.getElementById("txtDepAirport").value == "") {
-			alert("출발지를 선택해 주세요");
-		} else if (document.getElementById("txtArrAirport").value == "") {
-			alert("도착지를 선택해 주세요");
-		} else if (document.getElementById("txtOnlineDepartureDate3").value == "") {
-			alert("탑승일을 선택해 주세요");
-		} else {
-			var lname = document.getElementById("txtLastName").value;
-			var fname = document.getElementById("txtFirstName").value;
-			var number = document.getElementById("txtReservationNumber").value;
-			var depa = document.getElementById("txtDepAirport").value;
-			var arra = document.getElementById("txtArrAirport").value;
-			var odd = document.getElementById("txtOnlineDepartureDate3").value;
+HttpSession sess = request.getSession();
+LoginUser user = (LoginUser)sess.getAttribute("User");
 
-			// 	location.href="bookingReserveController.bo?lname="+lname+"&fname="+fname+"&number="+number;
-			var iv = document.getElementById("f");
-			iv.innerHTML = "<input type='hidden' name='lname' value="+lname+">";
-			iv.innerHTML += "<input type='hidden' name='fname' value="+fname+">";
-			iv.innerHTML += "<input type='hidden' name='number' value="+number+">";
-			iv.innerHTML += "<input type='hidden' name='depa' value="+depa+">";
-			iv.innerHTML += "<input type='hidden' name='arra' value="+arra+">";
-			iv.innerHTML += "<input type='hidden' name='odd' value="+odd+">";
+String memId = "";
 
-			f.submit();
-		}
-	}
-</script>
+if(user != null) memId = user.getMember_id();
+
+%>
+
+<input type="hidden" id="memID" name="memID" value="<%=memId %>">
+
 
 <!-- wrap -->
 
@@ -405,15 +383,12 @@
 var memid = $("#memID").val(); //id 값 가져와서 저장
 
 
-$("#OfflineReservationTab").click(function() {
-
 	if (memid != "") {
 
-		$("#OfflineTab").addClass("on");
-		$("#OnlineTab").removeClass('on');
+		$("#OfflineTab").removeClass("on");
+		$("#OnlineTab").addClass('on');
 	}
 
-});
 
 $("#OnlineReservationTab").click(function() {
 
@@ -685,6 +660,41 @@ $(".layer-close").on("click", function(){
 });
 
 });
+
+
+	function sub() {
+		if (document.getElementById("txtLastName").value == "") {
+			alert("성을 입력해 주세요");
+		} else if (document.getElementById("txtFirstName").value == "") {
+			alert("이름을 입력해 주세요");
+		} else if (document.getElementById("txtReservationNumber").value == "") {
+			alert("예약번호를 입력해 주세요");
+		} else if (document.getElementById("txtDepAirport").value == "") {
+			alert("출발지를 선택해 주세요");
+		} else if (document.getElementById("txtArrAirport").value == "") {
+			alert("도착지를 선택해 주세요");
+		} else if (document.getElementById("txtOnlineDepartureDate3").value == "") {
+			alert("탑승일을 선택해 주세요");
+		} else {
+			var lname = document.getElementById("txtLastName").value;
+			var fname = document.getElementById("txtFirstName").value;
+			var number = document.getElementById("txtReservationNumber").value;
+			var depa = document.getElementById("txtDepAirport").value;
+			var arra = document.getElementById("txtArrAirport").value;
+			var odd = document.getElementById("txtOnlineDepartureDate3").value;
+
+			// 	location.href="bookingReserveController.bo?lname="+lname+"&fname="+fname+"&number="+number;
+			var iv = document.getElementById("f");
+			iv.innerHTML = "<input type='hidden' name='lname' value="+lname+">";
+			iv.innerHTML += "<input type='hidden' name='fname' value="+fname+">";
+			iv.innerHTML += "<input type='hidden' name='number' value="+number+">";
+			iv.innerHTML += "<input type='hidden' name='depa' value="+depa+">";
+			iv.innerHTML += "<input type='hidden' name='arra' value="+arra+">";
+			iv.innerHTML += "<input type='hidden' name='odd' value="+odd+">";
+
+			f.submit();
+		}
+	}
 
 
 </script>

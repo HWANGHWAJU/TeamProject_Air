@@ -11,14 +11,15 @@ import javax.servlet.http.HttpSession;
 
 import air.page.action.Action;
 import air.page.action.ActionForward;
-import air.page.action.MemberLogoutAction;
 import air.page.action.MypagestapmAction;
 import air.page.action.WeatherAction;
+import air.schedule.action.JsonDepArrivalLookupAction;
 import air.schedule.action.JsonGoAdditionalChoiceAction;
 import air.schedule.action.JsonGoPassengerAction;
 import air.schedule.action.JsonGoPayAndReservateAction;
 import air.schedule.action.JsonGoPaymentPageAction;
 import air.schedule.action.JsonScheduleAction;
+import air.schedule.action.JsonScheduleLookupAction;
 import air.schedule.action.SAction;
 import air.schedule.action.SJsonAction;
 import air.schedule.action.ScheduleAction;
@@ -310,7 +311,13 @@ public class AirPageController extends javax.servlet.http.HttpServlet implements
 				System.out.println();
 			}
 		}
-		
+		else if(command.equals("/scheduleLookup.bo")){
+			SJsonAction jsonaction= new JsonScheduleLookupAction();
+			jsonaction.execute(request, response);
+		}else if(command.equals("/depArrivalLookup.bo")){
+			SJsonAction jsonaction = new JsonDepArrivalLookupAction();
+			jsonaction.execute(request, response);
+		}
 		
 		
 		

@@ -7,7 +7,7 @@
 		<input type="hidden" name="hidBookConditionData">
 	</form>	
 	<input type="hidden" id="viewLayerGUMInformation" href="I/KO/viewGumInformation" class="jsOpenLayer">
-<%-- <%
+<%
 
 HttpSession sess = request.getSession();
 LoginUser user = (LoginUser)sess.getAttribute("User");
@@ -32,7 +32,7 @@ request.getSession().setAttribute("first",first);
 <input type="hidden" id="memLast" value="<%=last %>">
 <input type="hidden" id="memFirst" value="<%=first %>">	
 	
-	 --%>
+
 	<!-- booking 영역 start-->
 	<div id="container">
 		<div id="content">

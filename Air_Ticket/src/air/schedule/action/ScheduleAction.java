@@ -110,7 +110,7 @@ public class ScheduleAction implements SAction {
 			System.out.println("In Schedule Action :"+depArr.getFlightschedule_arr());
 			
 			forward.setRedirect(false);
-			forward.setPath("./book_04.jsp");
+			forward.setPath("./book/book_04.jsp");
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 			dispatcher.forward(request, response);

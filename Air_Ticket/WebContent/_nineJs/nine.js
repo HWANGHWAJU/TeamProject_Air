@@ -2463,7 +2463,7 @@ function Cal_fu(){
 }
 
 var count=1;
-		function setDate(d, key){
+function setDate(d, key){
 			/* 	alert(nowTripType);
 			alert(d +"count :"+count); */
 			if(count ==0)count=1;
@@ -2484,5 +2484,22 @@ var count=1;
 		}	
 }
 
+/*	체크인 	*/	
+function fn_checkin(btndata, memid){
+	alert(btndata+"  id :"+memid);
 	
+	$.ajax({
+		type : "POST",
+		url : "./OnlineCheckIn.cK",
+		data : {bookingNum : btndata, 
+				userId : memid},
+		contextType : "application/x-www-form-urlencoded; charset=UTF-8",
+		success : function(data){
+			
+		}
+	});
+	
+}
+
+
 

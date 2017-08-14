@@ -32,7 +32,7 @@ public class MypagestapmAction implements Action {
 		sdto.setMember_id(id);
 
 		
-		airnineDAO dao = new airnineDAO();
+		stampDAO dao = new stampDAO();
 		
 		try(Connection conn = ConnectionProvider.getConnection()){
 			

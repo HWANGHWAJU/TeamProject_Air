@@ -7,15 +7,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+
 
 import air.member.action.JoinAction;
 import air.member.action.JoinConfirmAction;
 import air.member.action.MemberLoginAction;
+import air.member.action.MemberLogoutAction;
 import air.member.action.memberConfirmAction;
 import air.page.action.Action;
 import air.page.action.ActionForward;
-import air.page.action.MemberLogoutAction;
+
 import dto.LoginUser;
 
 public class MemberController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet{

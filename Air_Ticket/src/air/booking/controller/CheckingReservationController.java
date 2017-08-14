@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.naming.java.javaURLContextFactory;
 
 import air.page.action.ActionForward;
+import air.schedule.action.SJsonAction;
 import air.booking.action.CheckReservationAction;
 import air.booking.action.CheckReservationAction2;
 import air.booking.action.bookingCheckAction;
 import air.booking.action.bookingCheckAction2;
+import air.booking.action.bookingOnlineCheckinAction;
 
 public class CheckingReservationController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet{
 
@@ -55,16 +57,28 @@ public class CheckingReservationController extends javax.servlet.http.HttpServle
 			System.out.println("Controller");
 			CheckReservationAction action = new CheckReservationAction();
 			forward = action.execute(req, resp);
-		}else if(command.equals("/bookingReserveController2.cK")){
+		}
+		
+		// 회원 예약 조회
+		
+		else if(command.equals("/bookingReserveController2.cK")){
 			System.out.println("따란");
 			CheckReservationAction2 action = new CheckReservationAction2();
 			 action.execute(req, resp);
 			 forward=null;
-		}else if(command.equals("/bookingCheckController.cK")){
+		}
+		
+		else if(command.equals("/bookingCheckController.cK")){
 			System.out.println("쳌쳌");
 			bookingCheckAction action = new bookingCheckAction();
 			forward = action.execute(req, resp);
-		}else if(command.equals("/bookingCheckController2.cK")){
+		}
+		
+		
+		
+		// 회원 온라인 체크인 
+		
+		else if(command.equals("/bookingCheckController2.cK")){
 			System.out.println("고프다..");
 			bookingCheckAction2 action = new bookingCheckAction2();
 			action.execute(req, resp);
@@ -72,6 +86,13 @@ public class CheckingReservationController extends javax.servlet.http.HttpServle
 		}
 		
 		
+		// 온라인으로 체크인 하기 
+		else if(command.equals("/OnlineCheckIn.cK")){
+		
+			SJsonAction action = new bookingOnlineCheckinAction();
+			action.execute(req, resp);
+			
+		}
 		
 		if(forward != null){
 			if(forward.isRedirect()){

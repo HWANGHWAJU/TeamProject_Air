@@ -33,13 +33,11 @@ public class CheckReservationAction2 implements JsonAction {
 	    System.out.println(sy);
 	    System.out.println(ey);
 	    System.out.println(UserId);
-	    
-	    bookingDAO bdao = new bookingDAO();
-	    String em = bdao.getResEmail(UserId);
-	    
+
+
 	    JsonBookingService Bservice =new JsonBookingService();
 	    
-	    JsonArray jsBooking = Bservice.getBooking(st, sy, ey, em);
+	    JsonArray jsBooking = Bservice.getBooking(st, sy, ey, UserId);
 		
 	    String jsBookings = new Gson().toJson(jsBooking);
 	    

@@ -183,7 +183,7 @@ public class MemberDAO {
 	}
 	
 	public LoginUser convertUser(ResultSet rs) throws Exception{
-		return new LoginUser(rs.getString("member_id"), rs.getString("member_eng_lastname"), rs.getString("member_eng_firstname"), rs.getString("member_gender"), rs.getString("member_email"));
+		return new LoginUser(rs.getString("member_id"), rs.getString("member_email"), rs.getString("member_gender"), rs.getString("member_eng_lastname"), rs.getString("member_eng_firstname"));
 	}
 	
 	

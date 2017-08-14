@@ -21,19 +21,15 @@ public class bookingCheckAction2 implements JsonAction{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json; charset=utf-8"); 
-		System.out.println("OK");
+	
+		System.out.println("=============In Booking CheckIn List Action2 ===============");
 		
-		 String Userld = req.getParameter("Userld");
-		  System.out.println(Userld);
+		 String UserId = req.getParameter("Userld");
+		  System.out.println("User Id : "+UserId);
 		 
-		  bookingDAO bdao = new bookingDAO();
-		  
-		  String em = bdao.getResEmail(Userld);
-		  System.out.println(em);
-		  
 		  JsonBookingService service =new JsonBookingService();
 		  
-		  JsonArray jsCheck = service.getCheck(em);
+		  JsonArray jsCheck = service.getCheck(UserId);
 		  
 		  String jsChecks = new Gson().toJson(jsCheck);
 		  

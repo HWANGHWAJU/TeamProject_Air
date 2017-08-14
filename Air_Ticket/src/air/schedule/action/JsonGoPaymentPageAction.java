@@ -26,7 +26,12 @@ public class JsonGoPaymentPageAction implements SJsonAction{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./book_00_Main.jsp?book=book_06_Pay.jsp");
+		String wrapClass="booking booking-step-on";
+		request.setAttribute("wrap", wrapClass);
+		
+		forward.setPath("./Main_Index.jsp?page=book/book_00_Main.jsp?book=book_06_Pay.jsp");
+		
+	//	forward.setPath("./book_00_Main.jsp?book=book_06_Pay.jsp");
 		
 		request.setAttribute("jsBC", jsBookingCondition);
 		request.setAttribute("jsF", jsFlightInfo);

@@ -1,7 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="dto.*"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+
+HttpSession sess = request.getSession();
+LoginUser user = (LoginUser)sess.getAttribute("User");
+
+String memId = "";
+
+if(user != null) memId = user.getMember_id();
+
+%>
+
+<input type="hidden" id="memID" name="memID" value="<%=memId %>">
 
 
 <!-- wrap -->
@@ -11,7 +24,7 @@
 			<!-- location -->
 			<div id="location"  class="" style="top: 0px;">
 				<ol class="location_area">
-					<li><a href="/CW/KO/main.do" id="Home">홈</a></li>
+					<li><a href="/mainIndex.bo" id="Home">홈</a></li>
 					<li><a href="javascript:document.reservationList1.submit();" class="menuDepth2">예약 조회/변경</a></li>
 					<li class="current"><span class="menuDepth3" href="#none">
 		                                
@@ -36,9 +49,9 @@
 
 				<div class="tab_section02 tab_2w first">
 					<ul class="js-tab-section">
-						<li class="on">
+						<li class="NoneMemberCheckIn on">
 							<div class="tab_area">
-								<h2 class="tab_title"><a href="#none" id="NonmemberCheckIn">비회원 체크인</a></h2>
+								<h2 class="tab_title"><a href="#none" id="NoneMemberCheckIn">비회원 체크인</a></h2>
 								<div class="tab_content country">
 									<!-- 예약번호 (S) -->
 									<div class="checkin-box01">
@@ -229,7 +242,7 @@
 
 							</div>
 						</li>
-						<li id="trueonline" class="">
+						<li id="trueonline" class="MemberCheckIn">
 							<div class="tab_area">
 								<h2 class="tab_title" confirmfunc="fn_isLogin"><a href="#none" id="MemberCheckIn">회원 체크인</a></h2>
 								<div class="tab_content country" id="tabMemberCheckIn">
@@ -244,7 +257,7 @@
 									</div>
 									<h2 class="table-title-big mgt60" name="lblOnlineCheckInItinerary">온라인 체크인 가능 여정</h2>
 									<div class="tbl-data-col02 mgt20">
-										<table>
+										<table id="OnlineCheckList">
 											<caption name="lblOnlineCheckInItineraryCaption">온라인 체크인 가능 여정 데이터 표 | 선택, 편명, 여정, 출발, 도착, 예약자, 체크인 상태로 구성되어있습니다.</caption>
 											<colgroup>
 												<col style="width:50px">
@@ -303,6 +316,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<p name="viewLayerLogin" href="I/KO/viewOneLogin" class="jsOpenLayer" style="display:none;"></p>
     <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
 
@@ -315,7 +330,114 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/sub/myreservation.css">
 <script type="text/javascript">
 
-<!-- 수정 1 -->
+var memid = $("#memID").val(); //id 값 가져와서 저장
+
+if(memid != ""){
+	//로그인 되어진 상태이면, 
+	  alert(memid);
+	fn_CheckInAjax(memid);
+		
+	$(".MemberCheckIn").addClass("on");
+	$(".NoneMemberCheckIn").removeClass("on");
+	
+	
+}else{
+	$(".MemberCheckIn").removeClass("on");
+	$(".NoneMemberCheckIn").addClass("on");
+}
+
+
+
+$("#MemberCheckIn").click(function(){
+	if(memid =="")	alert("로그인한 회원만 사용 할 수 있습니다.");
+});
+
+function fn_CheckInAjax(memid){
+	
+	
+	$.ajax({
+	      type:"POST",
+	      url:"./bookingCheckController2.cK",
+	      dataType : "JSON",
+	      data : {"Userld" : memid},
+	      contextType : "application/x-www-form-urlencoded; charset=UTF-8",
+	      success : function(data){
+	    	  console.log(data);
+//	    	  alert("아이고");
+	    	  if (data.length == 0) {
+					alert("해당하는 정보가 없습니다.");
+
+				} else {
+					var CheckStr = "";
+					
+					for(var i=0; i< data.length; i++){
+						
+						var btnId = "check_"+i;
+//						alert(btnId);
+						CheckStr += "<tr>"
+							+ "<td class='tc'>"
+							+ data[i].number
+							+ "</td>"
+							+ "<td class='tc'>"
+							+ data[i].name
+							+ "</td>"
+							+ "<td class='tc'>"
+							+ data[i].bst + '->'
+							+ data[i].barr
+							+ "</td>"
+							+ "<td class='tc'>"
+							+ data[i].sday
+							+ "</td>"
+							+ "<td class='tc'>"
+							+ data[i].aday
+							+ "</td>" 
+							+ "<td class='tc'>"
+							+ data[i].efname
+							+ "</td>" 
+							+ "<td class='tc'><button type='button' class='checkbtn' data='"+data[i].number+"' id='"+btnId+"'>"
+							+ data[i].check
+							+ "</a></td>" +
+
+							"</tr>";
+
+						
+						
+					}
+					var $table = $("#OnlineCheckList").find('tbody');
+
+		    		$table.html(CheckStr);
+		    		
+		    			$("#trueonline").addClass("on");
+		    			$("#falseonline").removeClass('on');
+					
+		    			
+		    			
+		    			$(".checkbtn").on("click", function(){
+		    				
+		    				var btnId = $(this).attr("id");
+		    				console.log(btnId);
+		    				
+		    				var btnData = $(this).attr("data");
+		    				console.log(btnData);
+		    				if(confirm("체크인 하시겠습니까?")){
+		    					fn_checkin(btnData, memid);
+		    				}	
+		    				
+		    			});
+		    			
+	           }
+	
+	    		
+	      }
+	
+});
+	
+}
+
+
+
+
+
 
   function sub(){
 	  
@@ -341,7 +463,7 @@
 	  iv.submit();
   };
   
-var memid = $("#memID").val(); //id 값 가져와서 저장
+
 
 $("#onlineDatePicker").datepicker({
 		minDate : moment().toDate(),
@@ -382,76 +504,6 @@ $(".btn_booking").on("click", function(){
 
 
 
-$("#MemberCheckIn").click(function(){
-  alert(memid);
-	if(memid != ""){
-		
-		$.ajax({
-			      type:"POST",
-			      url:"./bookingCheckController2.cK",
-			      dataType : "JSON",
-			      data : {"Userld" : memid},
-			      contextType : "application/x-www-form-urlencoded; charset=UTF-8",
-			      success : function(data){
-			    	  console.log(data);
-			    	  alert("아이고");
-			    	  if (data.length == 0) {
-							alert("해당하는 정보가 없습니다.");
-
-						} else {
-							var CheckStr = "";
-							
-							for(var i=0; i< data.length; i++){
-								CheckStr += "<tr>"
-									+ "<td class='tc'>"
-									+ data[i].number
-									+ "</td>"
-									+ "<td class='tc'>"
-									+ data[i].name
-									+ "</td>"
-									+ "<td class='tc'>"
-									+ data[i].bst + '->'
-									+ data[i].barr
-									+ "</td>"
-									+ "<td class='tc'>"
-									+ data[i].sday
-									+ "</td>"
-									+ "<td class='tc'>"
-									+ data[i].aday
-									+ "</td>" 
-									+ "<td class='tc'>"
-									+ data[i].efname
-									+ "</td>" 
-									+ "<td class='tc'>"
-									+ data[i].check
-									+ "</td>" +
-
-									"</tr>";
-
-								
-								
-							}
-							var $table = $("#OnlineCheckList").find('tbody');
-
-				    		$table.html(CheckStr);
-				    		
-				    			$("#trueonline").addClass("on");
-				    			$("#falseonline").removeClass('on');
-							
-			           }
-			
-			    		
-			      }
-			
-		});//ajax끝
-		
-		
-	
-	}else{
-		alert("로그인 페이지로 이동시켜라");
-	}
-		
-});
 $("#NonmemberCheckIn").click(function(){
 	$("#falseonline").addClass("on");
 	$("#trueonline").removeClass('on');	

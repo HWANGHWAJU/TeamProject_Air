@@ -20,7 +20,7 @@ import org.apache.jasper.tagplugins.jstl.core.Catch;
 
 import dto.stampDTO;
 
-public class airnineDAO {
+public class stampDAO {
 
 
 

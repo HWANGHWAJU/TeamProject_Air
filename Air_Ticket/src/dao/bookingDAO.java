@@ -81,14 +81,16 @@ public class bookingDAO {
 	}
 	
 	
-	public String getResEmail(String id) throws SQLException{
+	/*	로그인한 회원의 이메일	*/
+	
+	public String getResEmail(Connection conn, String id) throws SQLException{
 		String sql = "select member_email from member where member_id='"+id+"'";
 		
 		String email = "";
 		
 		try{
 
-			pstmt = con.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -105,7 +107,8 @@ public class bookingDAO {
 	
 	
 	
-	// DB 연결 수정 2
+	
+	// DB 연결 수정 2 - 회원 예약 조회
 	public Vector<bookingDTO> getAllbooking2(Connection conn, String sday, String eday, String sort, String email) {
 	
 		Vector<bookingDTO> v = new Vector<bookingDTO>();
@@ -160,7 +163,6 @@ public class bookingDAO {
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
-			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}		
 		
 		return v;
@@ -234,8 +236,8 @@ public class bookingDAO {
 	
 	
 	
-	// DB 연결 수정 1 
-	public Vector<bookingDTO> getCheckinbooking2(Connection conn, String code) throws SQLException {
+	// DB 연결 수정 1  = 로그인한 회원의 체크인 내역 조회
+	public Vector<bookingDTO> getCheckinbooking2(Connection conn, String email) throws SQLException {
 		
 		Vector<bookingDTO> ve = new Vector<bookingDTO>();
 		
@@ -243,11 +245,11 @@ public class bookingDAO {
 	
 		try {
 			// 예매 이메일 -> 예약 코드 
-			String sql = "select * from booking where booking_reservation_code =? ";
+			String sql = "select * from booking where booking_reserveinfo_email =? and booking_check='Y' and booking_checkinCheck='N' ";
 				
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, code); //? 값 셋팅 : 예약시 발생한 예약번호
+			pstmt.setString(1, email); //? 값 셋팅 : 예약시 발생한 예약번호
 			
 		
 			rs=pstmt.executeQuery();
@@ -296,7 +298,7 @@ public class bookingDAO {
 		return new bookingDTO( rs.getInt("booking_number"), rs.getString("booking_reserveinfo_email"), rs.getString("booking_reservation_code"), rs.getString("booking_scheduleNum"),
 										    rs.getString("booking_type"), rs.getString("booking_start"), rs.getDate("booking_start_date"), rs.getString("booking_start_time"), rs.getString("booking_arr"),
 										    rs.getDate("booking_arr_date"), rs.getString("booking_arr_time"), rs.getString("booking_flight_name"), rs.getString("booking_optseat"),
-										    rs.getString("booking_optfood"), rs.getDate("booking_date"), rs.getString("booking_way"), rs.getString("booking_check"),
+										    rs.getString("booking_optfood"), rs.getDate("booking_date"), rs.getString("booking_way"), rs.getString("booking_checkinCheck"), rs.getString("booking_check"),
 										    rs.getString("booking_passportnumber"), rs.getString("booking_eng_lastname"), rs.getString("booking_eng_firstname"), rs.getString("booking_age"),
 										    rs.getString("booking_gender"), rs.getString("booking_total_price"));
 	}

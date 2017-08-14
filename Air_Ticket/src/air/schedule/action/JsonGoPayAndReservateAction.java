@@ -57,7 +57,13 @@ public class JsonGoPayAndReservateAction implements SJsonAction{
 		System.out.println(reservationDatas);
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("./book_06_Finish.jsp");
+		String wrapClass="board";
+		request.setAttribute("wrap", wrapClass);
+		
+		forward.setPath("./Main_Index.jsp?page=book/book_06_Finish.jsp");
+		
+		
+//		forward.setPath("./book_06_Finish.jsp");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 		dispatcher.forward(request, response);

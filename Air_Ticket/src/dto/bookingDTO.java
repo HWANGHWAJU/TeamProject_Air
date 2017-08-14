@@ -23,7 +23,9 @@ public class bookingDTO {
 	private String booking_optfood;		
 	
 	private Date booking_date;		
-	private String booking_way;	
+	private String booking_way;
+	
+	private String booking_checkinCheck;
 	private String booking_check;	
 	
 	private String booking_passportnumber;
@@ -36,7 +38,7 @@ public class bookingDTO {
 	
 	public bookingDTO(){}
 	
-	public bookingDTO(Integer n, String e, String code, String scn, String type, String dep, Date depdate, String deptime, String arr, Date arrdate, String arrtime, String flightname, String opseat, String opfood, Date bookdate, String bookway, String check, String pass, String last, String first, String age, String gender,String total){
+	public bookingDTO(Integer n, String e, String code, String scn, String type, String dep, Date depdate, String deptime, String arr, Date arrdate, String arrtime, String flightname, String opseat, String opfood, Date bookdate, String bookway, String checkinCheck, String check, String pass, String last, String first, String age, String gender,String total){
 		this.booking_number = n;
 		this.booking_reserveinfo_email = e;
 		this.booking_reservation_code = code;
@@ -53,6 +55,7 @@ public class bookingDTO {
 		this.booking_optfood = opfood;
 		this.booking_date = bookdate;
 		this.booking_way = bookway;
+		this.booking_checkinCheck = checkinCheck;
 		this.booking_check = check;
 		this.booking_passportnumber = pass;
 		this.booking_eng_lastname = last;
@@ -62,6 +65,12 @@ public class bookingDTO {
 		this.booking_total_price = total;
 	}
 	
+	public String getBooking_checkinCheck(){
+		return booking_checkinCheck;
+	}
+	public void setBooking_checkinCheck(String booking_checkinCheck){
+		this.booking_checkinCheck = booking_checkinCheck;
+	}
 	public String getBooking_scheduleNum(){
 		return booking_scheduleNum;
 	}
