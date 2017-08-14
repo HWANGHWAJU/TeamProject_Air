@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8" session="false"%>
+
 <!DOCTYPE html>
 
 <div id="header" >
@@ -7,8 +8,10 @@
 		<div class="hgroup" style="display:block;">
 		 	<h1 class="logo">
 		 	<a href="mainIndex.bo"><img src="./images/common/img_logo01.png" alt="AIR NINE"></a></h1>
-		 
+
+
 			 <div class="hrgroup" id="flagLogin">
+
 			 	<span class="login" id="loginSpan"><a href="LoginJoin.bo">로그인</a></span>
 			 	<span class="member jsHrgroup"> 
 			 		<a href="#this">마이 페이지</a>
@@ -84,36 +87,30 @@
 					           <a href="Opt_Main.bo">부가 서비스 구매</a>
 					       </li>
 						       <li class="depth02Lists">
-					           <a href="/CW/ko/online-check-in.do">공항 서비스</a>
+					           <a href="#this">공항 서비스</a>
 					       </li>
 						       <li class="depth02Lists">
-					           <a href="/CW/ko/cabin.do">기내 서비스</a>
-					       </li>
-						       <li class="depth02Lists">
-						           <a href="/CW/ko/infant.do">도움이 필요한 고객</a>
-					       </li>
-   				       <li class="depth02Lists">
-						           <a href="/CW/ko/mobile.do">모바일 서비스</a>
-					       </li>
+					           <a href="Info_seat.bo">기내 서비스</a>
+					           </li>
 					       <li class="depth02Lists">
-					           <a href="/CW/ko/download.do">양식 다운로드</a>
+					           <a href="Info_map.bo">항공 노선도</a>
 					       </li>
 	 			</ul>
  		</li>
 		          <li class="depth01Lists">
-		              <a href="/CW/ko/mint_story.do">Travel Information</a>
+		              <a href="#this">Travel Information</a>
 			<ul class="depth02" style="display: none;">
  					       <li class="depth02Lists">
-			           <a href="/CW/ko/mint_story.do">취항지 소개</a>
+			           <a href="#this">취항지 소개</a>
 					       </li>
 						       <li class="depth02Lists">
-					           <a href="javascript:hotel();" title="호텔홈페이지바로가기[새창열림]">호텔</a>
+					           <a href="#this">호텔</a>
 					       </li>
 							       <li class="depth02Lists">
-					           <a href="javascript:rentcar();" title="렌터카홈페이지바로가기[새창열림]">렌터카</a>
+					           <a href="#this">렌터카</a>
 					       </li>
 					       <li class="depth02Lists">
-					           <a href="/I/ko/viewTravelInsurance.do">여행자보험</a>
+					           <a href="#this">여행자보험</a>
 					       </li>
 	 			</ul>
  		</li>
@@ -127,10 +124,10 @@
 					           <a href="Event_specialprice.bo">특가존</a>
 					       </li>
 						       <li class="depth02Lists">
-					           <a href="/CW/ko/noticeList.do">공지사항</a>
+					           <a href="#this">공지사항</a>
 					       </li>
       				       <li class="depth02Lists">
-					           <a href="/CW/ko/printList.do">미디어룸</a>
+					           <a href="#this">미디어룸</a>
 					       </li>
 			</ul>
  		</li>
@@ -146,3 +143,7 @@
 
 	</div>
 </div>
+
+<script>
+console.log($("#userId").val());
+</script>

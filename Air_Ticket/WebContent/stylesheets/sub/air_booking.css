@@ -1,4 +1,4 @@
-@CHARSET "utf-8";
+ @CHARSET "utf-8";
 
 /* add before : airs-datepicker */
 .booking-wrap .booking-date .booking-date-layer .ui-datepicker-group .ui-datepicker-calendar td.ui-datepicker-today a:before, .booking-wrap .booking-date .booking-date-layer .ui-datepicker-group .ui-datepicker-calendar td.ui-datepicker-today span:before, .booking-wrap .booking-date .booking-date-layer .ui-datepicker-group .ui-datepicker-calendar td.ui-datepicker-start a:before, .booking-wrap .booking-date .booking-date-layer .ui-datepicker-group .ui-datepicker-calendar td.ui-datepicker-end a:before { background-image: url('/CW/public/images/icons-se978d1950f.png'); background-repeat: no-repeat; }

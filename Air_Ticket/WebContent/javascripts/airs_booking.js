@@ -1,23 +1,4 @@
-﻿var BookConditionDataObject = function() {
-	this.TRIPTYPE = "";
-	this.segmentDatas = [];
-	this.passengerDatas = [];
-};
-
-var SegmentDataObject = function() {
-	this.arrivalAirport = "";
-	this.carrierCode = "RS";
-	this.departureAirport = "";
-	this.departureDateTime = "";
-	this.flownSeg = false;
-	this.layover = false;
-	this.noShow = false;
-};
-
-var PassengerDataObject = function() {
-	this.passengerNo = "";
-	this.paxType = "";
-};
+﻿
 
 function generateUUID() {
 	var d = new Date().getTime();
