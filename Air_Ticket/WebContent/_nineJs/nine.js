@@ -1296,6 +1296,8 @@ $(document).ready(function(){
 			// 1. 스케줄 조회 / 확인 버튼 
 			$("#btnSubmit").on("click", function(){
 				
+				
+				
 				var scradio = $("input:radio[name='radTripType']:checked").val();
 
 				var dep = $("#txtDepAirport").val();
@@ -1420,19 +1422,27 @@ function fn_DepArrivalLookup(data){
 			$("#spanSrchDepDate").text(data.depdate);
 			console.log(data.flightlist.length);
 			var str ="";
-			for(var i=0; i<data.flightlist.length; i++){
-				str += "<tr>"+
-					   "<td>"+data.flightlist[i].flight+"</td>"+
-					   "<td><em class='point-color01'>"+data.flightlist[i].state+"</em></td>"+
-					   "<td>"+data.flightlist[i].deptime+"</td>"+
-					   "<td>"+data.flightlist[i].willdep+"</td>"+
-					   "<td>"+data.flightlist[i].sucdep+"</td>"+
-					   "<td>"+data.flightlist[i].arrtime+"</td>"+
-					   "<td>"+data.flightlist[i].willarr+"</td>"+
-					   "<td>"+data.flightlist[i].sucarr+"</td>"+
-					   "</tr>";
-			}
-			$("#FlightSearchList_tbody").html(str);
+			
+			if(data.flightlist.length == 0){
+				str +="<tr><td colspan='8' class='tbl-null'>해당 일자에는 운항하는 항공편이 없습니다. </td></tr>";
+			}else{
+			
+				
+				for(var i=0; i<data.flightlist.length; i++){
+					str += "<tr>"+
+						   "<td>"+data.flightlist[i].flight+"</td>"+
+						   "<td><em class='point-color01'>"+data.flightlist[i].state+"</em></td>"+
+						   "<td>"+data.flightlist[i].deptime+"</td>"+
+						   "<td>"+data.flightlist[i].willdep+"</td>"+
+						   "<td>"+data.flightlist[i].sucdep+"</td>"+
+						   "<td>"+data.flightlist[i].arrtime+"</td>"+
+						   "<td>"+data.flightlist[i].willarr+"</td>"+
+						   "<td>"+data.flightlist[i].sucarr+"</td>"+
+						   "</tr>";
+				}
+			}	
+				$("#FlightSearchList_tbody").html(str);
+			
 		}
 	});
 }
@@ -1440,6 +1450,13 @@ function fn_DepArrivalLookup(data){
 function fn_ScheduleLookup(data){
 	
 	console.log(data);
+	var triptype = data.triptype;
+	console.log(triptype);
+	var condition = data.condition;
+	var dep = data.dep;
+	var arr = data.arr;
+	var depDate = data.depDate;
+	var arrDate = data.arrDate;
 	
 	var str = JSON.stringify(data);
 	console.log(str);
@@ -1450,11 +1467,129 @@ function fn_ScheduleLookup(data){
 		dataType :"JSON",
 		contextType : "application/x-www-form-urlencoded; charset=UTF-8",
 		data : {LookupData : str},
-		success : function(){
+		success : function(data){
+			alert("d");
+			console.log(data);
+	
+		if(condition == "radWeekly"){	
+		
+			$("#spanDepAirportName_1").text(dep);
+			$("#spanArrAirportName_1").text(arr);
 			
+			var owStr = "";
+			
+			if(data.list.length == 0 ){
+				owStr +="<tr><td colspan='12' class='tbl-null'>해당 주간에는 운항하는 항공편이 없습니다.</td></tr>";
+			} else {
+			
+				for(var i=0; i<data.list.length; i++){
+					owStr +="<tr>"+
+							"<td>"+data.list[i].flightName+"</td>"+
+							"<td>"+data.list[i].flightType+"</td>"+
+							"<td>"+data.list[i].depTime+"</td>"+
+							"<td>"+data.list[i].arrTime+"</td>"+
+							"<td>운항시간 ㅇㅅㅠ</td>";
+					for(var j=0; j<data.list[i].dayList.length; j++){
+						var importClass ="Import";
+						if(data.list[i].dayList[j].day == "N") importClass = "hideImport";
+						owStr += "<td class='tbl-flight'><span class='icon-flight-from02 "+importClass+"'>"+data.list[i].dayList[j].day+"</span></td>";
+					}
+						owStr += "</tr>";
+							
+				}
+			}
+			$("#weekly_DepFlight_tbody").html(owStr);
+			$("#divWeeklyResult_Dep").removeClass("hide");
+			
+			if(triptype=="RT"){
+				
+				$("#spanDepAirportName_2").text(arr);
+				$("#spanArrAirportName_2").text(dep);
+				
+				var rtStr = "";
+				if(data.rtlist.length == 0){
+					rtStr += "<tr><td colspan='12' class='tbl-null'>해당 주간에는 운항하는 항공편이 없습니다.</td></tr>";
+				}else {
+					for(var i=0; i<data.rtlist.length; i++){
+						rtStr +="<tr>"+
+								"<td>"+data.rtlist[i].flightName+"</td>"+
+								"<td>"+data.rtlist[i].flightType+"</td>"+
+								"<td>"+data.rtlist[i].depTime+"</td>"+
+								"<td>"+data.rtlist[i].arrTime+"</td>"+
+								"<td>운항시간 ㅇㅅㅠ</td>";
+						for(var j=0; j<data.rtlist[i].dayList.length; j++){
+							var importClass ="Import";
+							if(data.list[i].dayList[j].day == "N") importClass = "hideImport";
+							rtStr += "<td class='tbl-flight'><span class='icon-flight-to02 "+importClass+"'>"+data.rtlist[i].dayList[j].day+"</td>";
+						}
+							rtStr += "</tr>";
+					}		
+				}
+				
+				$("#weekly_ArrFlight_tbody").html(rtStr);
+				$("#divWeeklyResult_Arr").removeClass("hide");
+				
+			}
+		}else if(condition == "radSelectOne"){
+			
+			$("#spanSelectOneDepAirportName_1").text(dep);
+			$("#spanSelectOneArrAirportName_1").text(arr);
+			
+			var owStr = "";
+			
+			if(data.list.length == 0 ){
+				owStr += "<tr><td colspan='6' class='tbl-null'>해당 주간에는 운항하는 항공편이 없습니다.</td></tr>";
+			}else {
+				for(var i=0; i<data.list.length; i++){
+					owStr +="<tr>"+
+							"<td>"+data.list[i].flightName+"</td>"+
+							"<td>"+data.list[i].flightType+"</td>"+
+							"<td>"+depDate+"</td>"+
+							"<td>"+data.list[i].depTime+"</td>"+
+							"<td>"+data.list[i].arrTime+"</td>"+
+							"<td>운항 시간</td>"+
+							"</tr>";
+							
+				}
+			}
+			$("#selectOne_DepFlight_tbody").empty();
+			$("#selectOne_DepFlight_tbody").html(owStr);
+			$("#divSelectOneResult_Dep").removeClass("hide");
+			
+			if(triptype="RT"){
+				
+				$("#spanSelectOneDepAirportName_2").text(arr);
+				$("#spanSelectOneArrAirportName_2").text(dep);
+				
+				var rtStr = "";
+				
+				if(data.rtlist.length == 0 ){
+					rtStr += "<tr><td colspan='6' class='tbl-null'>해당 주간에는 운항하는 항공편이 없습니다.</td></tr>";
+				}else {
+					for(var i=0; i<data.rtlist.length; i++){
+						rtStr +="<tr>"+
+								"<td>"+data.rtlist[i].flightName+"</td>"+
+								"<td>"+data.rtlist[i].flightType+"</td>"+
+								"<td>"+arrDate+"</td>"+
+								"<td>"+data.rtlist[i].depTime+"</td>"+
+								"<td>"+data.rtlist[i].arrTime+"</td>"+
+								"<td>운항 시간</td>"+
+								"</tr>";
+								
+						}
+				}
+				$("#selectOne_ArrFlight_tbody").html(rtStr);
+				$("#divSelectOneResult_Arr").removeClass("hide");
+				
+			}
 			
 			
 		}
+			
+		}
+		
+		
+		
 	});
 	
 }
@@ -1474,7 +1609,7 @@ function fn_ClickConfirmBtn(){
 	var memid = $("#memID").val();
 	var memEmail = $("#memEMAIL").val();
 
-	if(memid==null){
+	if(memid==""){
 		alert("로그인 후 이용 가능합니다.");
 		location.href="./LoginJoin.bo";
 	}else{
@@ -2484,22 +2619,25 @@ function setDate(d, key){
 		}	
 }
 
-/*	체크인 	*/	
-function fn_checkin(btndata, memid){
+/*	체크인 		
+function fn_checkin(btndata, memid, dep, arr){
 	alert(btndata+"  id :"+memid);
 	
 	$.ajax({
 		type : "POST",
 		url : "./OnlineCheckIn.cK",
 		data : {bookingNum : btndata, 
-				userId : memid},
+				userId : memid,
+				dep : dep,
+				arr : arr },
 		contextType : "application/x-www-form-urlencoded; charset=UTF-8",
 		success : function(data){
-			
+			alert("체크인 처리가 완료 되었습니다.");
+			fn_CheckInAjax(memid);
 		}
 	});
 	
 }
-
+*/
 
 

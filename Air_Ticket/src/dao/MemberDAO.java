@@ -288,53 +288,7 @@ public class MemberDAO {
 		
 		return mdto;
 	}
-	
-	public stampDTO stampView(Connection conn, String member_id) {
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;	
-		stampDTO sdto = null;
-		String sql = null;
-		
-		try {
-		
-			
-			sql = "select m.member_id, s.boong_number, s.booking_reserveinfo_email,s.stamp_bookinginfo "
-					+ "from member m join stamp s "
-					+ "on m.member_id = s.member_id"
-					+ "where m.member_id=?";
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, member_id);
-			
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				
-				sdto = new stampDTO();
-				sdto.setMember_id(rs.getString(1));
-				sdto.setBooking_number(rs.getInt(2));
-				sdto.setBooking_reserveinfo_email(rs.getString(3));
-				sdto.setStamp_bookinginfo(rs.getString(4));
-							
-			}
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(rs!=null)try{rs.close();}catch(SQLException ex){}
-			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
-		}
-		
-		return sdto;
-	}
-	
-	
-	
-	
-	
+
 	
 	
 	

@@ -1,6 +1,8 @@
 package air.page.action;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,31 +28,49 @@ public class MypagestapmAction implements Action {
 		System.out.println(id);
 		System.out.println("In MypageStamp");
 		
-
-
-		stampDTO sdto = new stampDTO();
-		sdto.setMember_id(id);
-
-		
 		stampDAO dao = new stampDAO();
 		
+		List<stampDTO> stampList = new ArrayList<>();
+		
 		try(Connection conn = ConnectionProvider.getConnection()){
-			
-		stampDTO staDTO = dao.Mystampinfo(conn, sdto);
-		
-		System.out.println("id :"+staDTO.getMember_id()+" EMAIL :"+staDTO.getBooking_reserveinfo_email()+ "INFO :"+staDTO.getStamp_bookinginfo());
-	
-		request.setAttribute("MemDTO",staDTO);
-		
+			stampList = dao.Mystampinfo(conn, id);
 		}
 		
+		int totalStampCount = 0;
+		
+		for(int i=0; i<stampList.size(); i++){
+			totalStampCount += stampList.get(i).getStamp_score();
+		}
+		
+		System.out.println("Total Stamp Count :"+totalStampCount);
+		
 		ActionForward forward=new ActionForward();
-	
-	
-		forward.setRedirect(true);
-		forward.setPath("./Mypage_0_Main.jsp?com=Mypage_stamp.jsp");
+		
+		request.setAttribute("stampCount", totalStampCount);
+		request.setAttribute("stampList", stampList);
+		forward.setRedirect(false);
+		String wrapClass="board";
+		request.setAttribute("wrap", wrapClass);
+		forward.setPath("./Main_Index.jsp?page=member/Mypage_stamp.jsp");
 		
 		return forward;
 	}
 
 }
+		
+		
+		/*		stampDTO sdto = new stampDTO();
+		sdto.setMember_id(id);
+		
+		stampDAO dao = new stampDAO();
+		
+		try(Connection conn = ConnectionProvider.getConnection()){
+			
+			stampDTO staDTO = dao.Mystampinfo(conn, sdto);
+		
+			System.out.println("id :"+staDTO.getMember_id()+" EMAIL :"+staDTO.getBooking_reserveinfo_email()+ "INFO :"+staDTO.getStamp_bookinginfo());
+	
+			request.setAttribute("MemDTO",staDTO);
+		
+		}
+*/		

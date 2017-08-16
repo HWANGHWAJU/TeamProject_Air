@@ -23,7 +23,7 @@ public class bookingDAO {
 		
 		Vector<bookingDTO> v = new Vector<bookingDTO>();
 		
-		bookingDTO bdto = null;
+//		bookingDTO bdto = null;
 		
 		try {
 			
@@ -43,6 +43,7 @@ public class bookingDAO {
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()){
+				
 /*				bdto = new bookingDTO();
 				bdto.setBooking_number(rs.getInt(1));
 				bdto.setBooking_reserveinfo_email(rs.getString(2));
@@ -102,17 +103,13 @@ public class bookingDAO {
 		return null;
 	}
 	
-	
-	
-	
-	
-	
+
 	
 	// DB 연결 수정 2 - 회원 예약 조회
 	public Vector<bookingDTO> getAllbooking2(Connection conn, String sday, String eday, String sort, String email) {
 	
 		Vector<bookingDTO> v = new Vector<bookingDTO>();
-		bookingDTO bdto = null;
+	//	bookingDTO bdto = null;
 		String sql ="";
 		try{
 			
@@ -176,7 +173,7 @@ public class bookingDAO {
 	    
 		Vector<bookingDTO> v = new Vector<bookingDTO>();
 		
-		bookingDTO bdto = null;
+	//	bookingDTO bdto = null;
 		String sql = "";
 		try {
 			//DB연결
@@ -241,11 +238,11 @@ public class bookingDAO {
 		
 		Vector<bookingDTO> ve = new Vector<bookingDTO>();
 		
-		bookingDTO bdto = null;
+	//	bookingDTO bdto = null;
 	
 		try {
 			// 예매 이메일 -> 예약 코드 
-			String sql = "select * from booking where booking_reserveinfo_email =? and booking_check='Y' and booking_checkinCheck='N' ";
+			String sql = "select * from booking where booking_reserveinfo_email =? and booking_check='Y' ";
 				
 			
 			pstmt = conn.prepareStatement(sql);
@@ -294,6 +291,23 @@ public class bookingDAO {
 		return ve;
 	}
 
+	
+	public void letOnlineCheckin(Connection conn, int bookingNum) throws SQLException{
+		String sql = "";
+		PreparedStatement pstmt = null;
+		
+		
+		try{
+			sql = "update booking set booking_checkinCheck = 'Y' where booking_number="+bookingNum;
+			pstmt = conn.prepareStatement(sql);
+			
+			int done = pstmt.executeUpdate();
+			
+			if(done == 1) System.out.println("체크인 되었습니다.");
+			
+		}catch(Exception e){e.printStackTrace();}
+	}
+	
 	public bookingDTO convertBookingDTO(ResultSet rs) throws SQLException{
 		return new bookingDTO( rs.getInt("booking_number"), rs.getString("booking_reserveinfo_email"), rs.getString("booking_reservation_code"), rs.getString("booking_scheduleNum"),
 										    rs.getString("booking_type"), rs.getString("booking_start"), rs.getDate("booking_start_date"), rs.getString("booking_start_time"), rs.getString("booking_arr"),

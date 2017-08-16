@@ -19,14 +19,16 @@ public class ReservationDTO {
 	private String booking_optfood;		
 	
 	private String booking_date;		
-	private String booking_way;	
+	private String booking_way;
+	
+	private String booking_checkinCheck;
 	private String booking_check;	
 	
 	private List<PassengerDetailDTO> passengerList;
 	
 	 private String booking_total_price;	
 
-	public ReservationDTO(String e, String code, String scNum, String type, FlightInfoDTO flightInfo, List<String> opseat, String opfood, String bookdate, String bookway, String check, List<PassengerDetailDTO> list, String total){
+	public ReservationDTO(String e, String code, String scNum, String type, FlightInfoDTO flightInfo, List<String> opseat, String opfood, String bookdate, String bookway, String checkinCheck, String check, List<PassengerDetailDTO> list, String total){
 		
 			this.booking_reserveinfo_email = e;
 			this.booking_reservation_code = code;
@@ -37,11 +39,18 @@ public class ReservationDTO {
 			this.booking_optfood = opfood;
 			this.booking_date = bookdate;
 			this.booking_way = bookway;
+			this.booking_checkinCheck = checkinCheck;
 			this.booking_check = check;
 			this.passengerList = list;
 			this.booking_total_price = total;
 		}
 
+	public String getBooking_checkinCheck(){
+		return booking_checkinCheck;
+	}
+	public void setBooking_checkinCheck(String checkinCheck){
+		this.booking_checkinCheck = checkinCheck;
+	}
 	public String getBooking_scheduleNum(){
 		return booking_scheduleNum;
 	}

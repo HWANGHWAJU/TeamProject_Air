@@ -13,11 +13,104 @@ import java.util.List;
 import java.util.Map;
 
 import JdbcUtil.JdbcUtil;
-import dto.LookupDTO;
+import dto.DepArrLookupDTO;
+import dto.ScheduleLookupDTO;
 import dto.flightschedule;
 
 public class LookupDAO {
 
+/*	스케줄 조회	*/	
+	
+	// 1. 주간 조회 
+	public List<ScheduleLookupDTO> getScheduleSearch(Connection conn, int routeNum, String depDate, String arrDate) throws SQLException{
+		
+		String sql = "";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<ScheduleLookupDTO> list = new ArrayList<>();
+		
+		try{
+			sql = "select * from flightschedule where route_number=? and ? between flightschedule_op_startdate and flightschedule_op_enddate and ? between flightschedule_op_startdate and flightschedule_op_enddate";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, routeNum);
+			pstmt.setString(2, depDate);
+			pstmt.setString(3, arrDate);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				list.add(convertSchedule(rs));
+			}
+		return list;
+		}catch(Exception e){e.printStackTrace();}
+		return null;
+	}
+	
+	//2. 선택일 조회 
+	public List<ScheduleLookupDTO> getScheduleSelectOne(Connection conn, int routeNum, String dayword, String depDate, String arrDate) throws SQLException{
+		
+		String sql = "";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<ScheduleLookupDTO> list = new ArrayList<>();
+		
+		try{
+			sql = "select * from flightschedule where route_number=? and ? between flightschedule_op_startdate and flightschedule_op_enddate and ? between flightschedule_op_startdate and flightschedule_op_enddate and flightschedule_op_day like '%"+dayword+"%'";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, routeNum);
+			pstmt.setString(2, depDate);
+			pstmt.setString(3, arrDate);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				list.add(convertSchedule(rs));
+			}
+		return list;
+		}catch(Exception e){e.printStackTrace();}
+		return null;
+		
+	}
+	
+	public ScheduleLookupDTO convertSchedule(ResultSet rs) throws Exception{
+		
+		String[] days = null;
+		
+		String strDays = rs.getString("flightschedule_op_day").toString();
+		System.out.println("DAO :"+strDays);
+		
+	
+		List<String> Aday = new ArrayList<String>();
+		
+		for(int i=0; i<7; i++) Aday.add("N");
+		
+		
+		System.out.println("Aday Size :"+Aday.size());
+		
+		if(strDays.contains("월")){ Aday.set(1, "Y"); }
+		if(strDays.contains("화")){ Aday.set(2, "Y"); }
+		if(strDays.contains("수")){ Aday.set(3, "Y"); }
+		if(strDays.contains("목")){ Aday.set(4, "Y"); }
+		if(strDays.contains("금")){ Aday.set(5, "Y"); }
+		if(strDays.contains("토")){ Aday.set(6, "Y"); }
+		if(strDays.contains("일")){ Aday.set(0, "Y"); }
+	
+
+		System.out.println(" in convertSchedule size :"+Aday.size());
+	
+		String dep = String.valueOf(rs.getTime("flightschedule_dep_time"));
+		String arr = String.valueOf(rs.getTime("flightschedule_arr_time"));
+		
+//		Time term = rs.getTime("flightschedule_arr_time")-rs.getTime("flightschedule_dep_time");
+		
+		return new ScheduleLookupDTO(rs.getString("plane_seat_flight_name"), rs.getString("plane_seat_flight_name"), dep, arr, "시간 간격 ㅇㅅ ㅜ", Aday);
+	}
+	 	
+/*	출도착 조회 	*/	
 	public int getRouteNum(Connection conn, String dep, String arr) throws SQLException{
 		
 		String sql = "";
@@ -46,7 +139,7 @@ public class LookupDAO {
 	}
 
 	
-	public List<LookupDTO> getFlightList(Connection conn, String depDate, String day, int routeNum) throws SQLException{
+	public List<DepArrLookupDTO> getFlightList(Connection conn, String depDate, String day, int routeNum) throws SQLException{
 		
 		String sql = "";
 		PreparedStatement pstmt = null;
@@ -59,7 +152,7 @@ public class LookupDAO {
 		
 			rs = pstmt.executeQuery();
 			
-			List<LookupDTO> list = new ArrayList<>();
+			List<DepArrLookupDTO> list = new ArrayList<>();
 			
 			System.out.println("in getFlightList");
 			while(rs.next()){
@@ -86,7 +179,7 @@ public class LookupDAO {
 			
 			Map<String, Object> map = new HashMap<>();
 			
-			List<LookupDTO> list = new ArrayList<>();
+			List<DepArrLookupDTO> list = new ArrayList<>();
 			String dep = "";
 			String arr = "";
 			System.out.println("in getFlightList");
@@ -107,7 +200,7 @@ public class LookupDAO {
 	}
 	
 	
-	public LookupDTO convertLookup(ResultSet rs, String depDate) throws Exception{
+	public DepArrLookupDTO convertLookup(ResultSet rs, String depDate) throws Exception{
 		
 		Date today = new Date();
 		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy.MM.dd");
@@ -123,7 +216,7 @@ public class LookupDAO {
 		String state= "";
 		Time deptime = null;
 		
-		LookupDTO dto = new LookupDTO();
+		DepArrLookupDTO dto = new DepArrLookupDTO();
 		
 		dto.setFlightname(rs.getString("plane_seat_flight_name"));
 		dto.setDeptime(rs.getString("flightschedule_dep_time"));

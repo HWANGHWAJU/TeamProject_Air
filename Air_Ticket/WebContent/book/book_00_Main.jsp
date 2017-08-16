@@ -12,18 +12,27 @@
 HttpSession sess = request.getSession();
 LoginUser user = (LoginUser)sess.getAttribute("User");
 
-String id = user.getMember_id();
-String email =user.getMember_email();
-String gender = user.getMemger_gender();
-String last = user.getMember_eng_last();
-String first = user.getMember_eng_first();
+String id = "";
+String email = "";
+String gender = "";
+String last = "";
+String first = "";
+
+
+if(user != null){
+
+id = user.getMember_id();
+email =user.getMember_email();
+gender = user.getMemger_gender();
+last = user.getMember_eng_last();
+first = user.getMember_eng_first();
 
 request.getSession().setAttribute("id", id);
 request.getSession().setAttribute("email",email);
 request.getSession().setAttribute("gender",gender);
 request.getSession().setAttribute("last", last);
 request.getSession().setAttribute("first",first);
-
+}
 %>
 
 <input type="hidden" id="memID" value="<%=id %>">

@@ -49,7 +49,7 @@ public class MemberLoginAction implements Action{
 	      
 	   forward.setRedirect(false);
 	 
-	    forward.setPath("./mainIndex.bo");
+	    forward.setPath("/mainIndex.bo");
        
 		   return forward;
 	}

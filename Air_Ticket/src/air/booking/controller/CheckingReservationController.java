@@ -91,7 +91,7 @@ public class CheckingReservationController extends javax.servlet.http.HttpServle
 		
 			SJsonAction action = new bookingOnlineCheckinAction();
 			action.execute(req, resp);
-			
+			forward = null;
 		}
 		
 		if(forward != null){

@@ -22,7 +22,9 @@ public class JsonScheduleAction implements SJsonAction{
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./book_00_Main.jsp?book=book_04.jsp");
+		String wrapClass="booking booking-step-on";
+		request.setAttribute("wrap", wrapClass);
+		forward.setPath("./Main_Index.jsp?page=book/book_00_Main.jsp?book=book_04.jsp");
 //		forward.setPath("./Json.jsp");
 		
 		request.setAttribute("JS", hidBookingConditionStr);

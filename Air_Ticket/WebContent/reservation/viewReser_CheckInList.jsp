@@ -394,7 +394,7 @@ function fn_CheckInAjax(memid){
 							+ "<td class='tc'>"
 							+ data[i].efname
 							+ "</td>" 
-							+ "<td class='tc'><button type='button' class='checkbtn' data='"+data[i].number+"' id='"+btnId+"'>"
+							+ "<td class='tc'><button type='button' class='checkbtn' data='"+data[i].number+"'dep='"+data[i].bst+"' arr='"+data[i].barr+"' id='"+btnId+"'>"
 							+ data[i].check
 							+ "</a></td>" +
 
@@ -418,9 +418,11 @@ function fn_CheckInAjax(memid){
 		    				console.log(btnId);
 		    				
 		    				var btnData = $(this).attr("data");
+		    				var dep = $(this).attr("dep");
+		    				var arr = $(this).attr("arr");
 		    				console.log(btnData);
 		    				if(confirm("체크인 하시겠습니까?")){
-		    					fn_checkin(btnData, memid);
+		    					fn_checkin(btnData, memid, dep, arr);
 		    				}	
 		    				
 		    			});
@@ -434,6 +436,27 @@ function fn_CheckInAjax(memid){
 	
 }
 
+/*	체크인 	*/	
+function fn_checkin(btndata, memid, dep, arr){
+	alert(btndata+"  id :"+memid);
+	
+	$.ajax({
+		type : "POST",
+		url : "./OnlineCheckIn.cK",
+		dataType :"TEXT",
+		data : {bookingNum : btndata, 
+				userId : memid,
+				dep : dep,
+				arr : arr },
+		contextType : "application/x-www-form-urlencoded; charset=UTF-8",
+		success : function(data){
+			alert("체크인 처리가 완료 되었습니다.");
+			alert(data);
+			fn_CheckInAjax(memid);
+		}
+	});
+	
+}
 
 
 

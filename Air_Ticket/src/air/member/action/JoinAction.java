@@ -35,7 +35,7 @@ public class JoinAction implements Action{
 				request.getParameter("member_nationality"),
 				request.getParameter("member_livenationality"),
 				(request.getParameter("txtMobileNO0")+request.getParameter("txtMobileNO1")+request.getParameter("txtMobileNO2")+request.getParameter("txtMobileNO3") ),
-				(request.getParameter("Useremail") + '@' +request.getParameter("selEmailDomain")),
+				(request.getParameter("Useremail") + '@' +request.getParameter("txtEmailDomain")),
 				request.getParameter("member_addinfo") );
 
 	JoinLoginService service = new JoinLoginService();

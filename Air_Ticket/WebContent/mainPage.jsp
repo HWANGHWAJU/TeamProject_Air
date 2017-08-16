@@ -90,19 +90,20 @@
 						<div class="banner-slider">
 							<ul id="banner-img">
 							 	<li>
-									<a href="#"><img src="images/mainbanner/main_event_20170629_ko.jpg" class="page"></a>
+									<a href="#this"><img src="images/mainbanner/main_event_20170629_ko.jpg" class="page"></a>
 								</li>
 								<li >
-									<a href="#"><img src="images/mainbanner/main_event_20170613_ko_1.jpg"class="page"></a>
+									<a href="#this"><img src="images/mainbanner/main_event_20170613_ko_1.jpg"class="page"></a>
 								</li>
 								<li >
-									<a href="#"><img src="images/mainbanner/main_event_20170613_ko_2.jpg"class="page"></a>
+									<a href="#this"><img src="images/mainbanner/main_event_20170613_ko_2.jpg"class="page"></a>
+								</li>
+
+								<li >
+									<a href="#this"><img src="images/mainbanner/main_event_20170627_02_ko.jpg"class="page"></a>
 								</li>
 								<li >
-									<a href="#"><img src="images/mainbanner/main_event_20170627_01_ko.jpg"class="page"></a>
-								</li>
-								<li >
-									<a href="#"><img src="images/mainbanner/main_event_20170627_02_ko.jpg"class="page"></a>
+									<a href="#this"><img src="images/mainbanner/mainVisual01_ko.jpg"class="page"></a>
 								</li>						
 							</ul>
 						</div>

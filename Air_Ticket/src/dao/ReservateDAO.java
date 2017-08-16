@@ -91,8 +91,8 @@ public class ReservateDAO {
 			sql = "insert into booking (booking_reserveinfo_email, booking_reservation_code, booking_scheduleNum, booking_type, booking_start, "+
 					"booking_start_date, booking_start_time, booking_arr, booking_arr_date, booking_arr_time, "+
 					"booking_flight_name, booking_optseat, booking_optfood, booking_date, booking_way, "+
-					"booking_check, booking_passportnumber, booking_eng_lastname, booking_eng_firstname, booking_age, booking_gender, booking_total_price) "+
-					"value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					"booking_checkinCheck, booking_check, booking_passportnumber, booking_eng_lastname, booking_eng_firstname, booking_age, booking_gender, booking_total_price) "+
+					"value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -115,13 +115,14 @@ public class ReservateDAO {
 				pstmt.setString(13, info.getBooking_optfood());
 				pstmt.setString(14, info.getBooking_date());
 				pstmt.setString(15, info.getBooking_way());
-				pstmt.setString(16, info.getBooking_check());
-				pstmt.setString(17, info.getPassengerList().get(i).getPassport());
-				pstmt.setString(18, info.getPassengerList().get(i).getLast());
-				pstmt.setString(19, info.getPassengerList().get(i).getFirst());
-				pstmt.setString(20, info.getPassengerList().get(i).getPaxtype());
-				pstmt.setString(21, info.getPassengerList().get(i).getGender());
-				pstmt.setString(22, info.getBooking_total_price());
+				pstmt.setString(16, info.getBooking_checkinCheck());
+				pstmt.setString(17, info.getBooking_check());
+				pstmt.setString(18, info.getPassengerList().get(i).getPassport());
+				pstmt.setString(19, info.getPassengerList().get(i).getLast());
+				pstmt.setString(20, info.getPassengerList().get(i).getFirst());
+				pstmt.setString(21, info.getPassengerList().get(i).getPaxtype());
+				pstmt.setString(22, info.getPassengerList().get(i).getGender());
+				pstmt.setString(23, info.getBooking_total_price());
 				
 				pstmt.executeUpdate();
 				

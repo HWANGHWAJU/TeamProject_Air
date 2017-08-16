@@ -71,7 +71,7 @@
 				 	<span class="member jsHrgroup"> 
 				 		<a href="#this">마이 페이지</a>
 				 		<ul class="hrgroup-list">
-				 			<li><a href="Mystamp.me?member_id=<%=id%>">나의 스탬프</a></li>
+				 			<li><a href="Mystamp.me">나의 스탬프</a></li>
 				 			<li><a href="MemberModify.me?member_id=<%=id%>">회원정보 수정</a></li>
 				 			<li><a href="MemberLogout.me">로그아웃</a></li>
 				 			<li><a href="#this">회원 탈퇴</a></li>

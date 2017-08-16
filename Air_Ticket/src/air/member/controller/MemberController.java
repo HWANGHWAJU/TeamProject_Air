@@ -16,7 +16,7 @@ import air.member.action.MemberLogoutAction;
 import air.member.action.memberConfirmAction;
 import air.page.action.Action;
 import air.page.action.ActionForward;
-
+import air.page.action.MypagestapmAction;
 import dto.LoginUser;
 
 public class MemberController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet{
@@ -123,7 +123,21 @@ public class MemberController extends javax.servlet.http.HttpServlet implements 
 			
 		}
 		
-		
+		/*	스템프 조회 		*/
+		else if(command.equals("/Mystamp.me")){
+
+			String id = (String)request.getSession().getAttribute("id");
+
+			System.out.println(" In Mem Controller ID :"+id);
+
+			
+			action = new MypagestapmAction();
+
+				forward = action.execute(request, response);
+				forward.setRedirect(false);
+				forward.getPath();
+			
+		}
 		
 		if(forward != null){
 			if(forward.isRedirect()){

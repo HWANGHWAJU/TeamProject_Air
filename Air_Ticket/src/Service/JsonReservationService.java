@@ -223,14 +223,14 @@ public class JsonReservationService {
 				SimpleDateFormat sdf= new SimpleDateFormat("yyyy.MM.dd");
 					
 				ReservationDTO ow = new ReservationDTO(
-						RPemail, ReservationCode, owNum, "OW", OWdto, owSeatList, OWmealName, sdf.format(date), payType, "Y", passengerList, payPrice
+						RPemail, ReservationCode, owNum, "OW", OWdto, owSeatList, OWmealName, sdf.format(date), payType,"N", "Y", passengerList, payPrice
 					);
 				
 				dao.InsertReservationInfo(conn, ow);
 				
 				if(triptype.equals("RT")){
 					ReservationDTO rt = new ReservationDTO(
-							RPemail, ReservationCode, rtNum, "RT", RTdto, rtSeatList, RTmealName, sdf.format(date), payType, "Y", passengerList, payPrice
+							RPemail, ReservationCode, rtNum, "RT", RTdto, rtSeatList, RTmealName, sdf.format(date), payType,"N", "Y", passengerList, payPrice
 						);
 					
 					dao.InsertReservationInfo(conn, rt);
