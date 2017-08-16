@@ -1,9 +1,16 @@
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8" session="false"
+	import="dto.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
 
+HttpSession sess = request.getSession();
+
+LoginUser user = (LoginUser)sess.getAttribute("User");
+String id = user.getMember_id();
+%>
 <style>
 div.clear1 {
 	clear: both;
@@ -112,33 +119,36 @@ font-size: 10px;
 				<div
 					style="background: rgb(85, 149, 255); color: white; font-weight: bold; position: relative; line-height: 80px; font-size: 35px; width: 600px; height: 80px; margin: 0 auto; text-align: center; border-radius: 50px 50px 0 0; font-style: HYPMokGak;">
 					Air N9NE STAMP</div>
-				<div clsaa="clear1"></div>
+				<div class="clear1"></div>
 				<div
 					style="width: 600px; height: 500px; margin: 0 auto; box-sizing: border-box; position: relative; border-bottom: 20px solid rgb(85, 149, 255); border-left: 20px solid rgb(85, 149, 255); border-right: 20px solid rgb(85, 149, 255); background-color: #F6F6FF;">
-					<div clsaa="clear1"></div>
+					<div class="clear1"></div>
 					<div class="stam1" style="font-size: 17px;">
 						<span
 							style="height: 67px; float: right; line-height: 67px; font-weight: bold; padding-right: 15px;">
 							<span
-							style="font-size: 23px; letter-spacing: 2px; color: red; font-weight: bold; position: relative; bottom: 5px;">${MemDTO.member_id }</span>
+							style="font-size: 23px; letter-spacing: 2px; color: red; font-weight: bold; position: relative; bottom: 5px;"><%=id %></span>
 							님의 현재보유 STAMP는 <span
-							style="font-size: 23px; letter-spacing: 2px; color: red; font-weight: bold; position: relative; bottom: 5px;">${MemDTO.stamp_bookinginfo }</span>개
+							style="font-size: 23px; letter-spacing: 2px; color: red; font-weight: bold; position: relative; bottom: 5px;">${requestScope.stampCount }</span>개
 							입니다.
 						</span>
 					</div>
 					<img src="images/stamp/stamp1.png"
 						style="z-index: 10; width: 90px; position: relative; top: 8px;">
-					<div clsaa="clear1"></div>
+					<div class="clear1"></div>
 
 					<div class="stampListBox">
 						<ul class="stampList" data-stampcategory="STAMP"
 							data-page="0" data-maxpage="0">
-							
-								<c:forEach begin="1" end="${MemDTO.stamp_bookinginfo }" varStatus="status">
+														
+								<!-- 스탬프가 찍힌 부분 -->
+								<c:forEach begin="1" end="${requestScope.stampCount }" varStatus="status">
 									<li class="nativeStamp" style="background-image:url('images/stamp/stampcom.png');"><span
 									class="num" title=""></span></li>
 								</c:forEach>
-								<c:forEach begin="1" end="${20-MemDTO.stamp_bookinginfo }" varStatus="status">
+								
+								<!-- 스탬프가 찍히지 않은 부분 -->
+								<c:forEach begin="1" end="${20-requestScope.stampCount }" varStatus="status">
 									<li class="nativeStamp" style="background-image:url('images/stamp/stampnone.png');"><em class="irT">Air N9NE</em></span></li>
 								</c:forEach>
 

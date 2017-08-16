@@ -87,10 +87,10 @@ function fn_SetSeatView(type, scNum, scDate, personCnt){
 						var seatSelected = data.seatList[index].selected;
 	//					console.log(seatData);
 						if(j!=4){
-							str +="<td>"+"<button class='_"+data.seatList[index].seatLevel+" "+seatSelected+"' id='"+type+"buttonSeat_"+seatData+"' data='"+seatData+"' seatPrice='"+seatPrice+"'><span class='title'>"+data.seatList[index].seatLevel+"</span></button>"+"</td>";
+							str +="<td>"+"<button class='"+data.seatList[index].seatLevel+" "+seatSelected+"' id='"+type+"buttonSeat_"+seatData+"' data='"+seatData+"' seatPrice='"+seatPrice+"'><span class='title'>"+data.seatList[index].seatLevel+"</span></button>"+"</td>";
 						}else{
 							str +="<td class='tbl-hallway'>"+i+"</td>"+
-								  "<td>"+"<button class='_"+data.seatList[index+1].seatLevel+"' id='"+type+"buttonSeat_"+seatData+"' data='"+seatData+"' seatPrice='"+seatPrice+"'><span class='title'>"+data.seatList[index].seatLevel+"</span></button></button>"+"</td>";
+								  "<td>"+"<button class='"+data.seatList[index+1].seatLevel+"' id='"+type+"buttonSeat_"+seatData+"' data='"+seatData+"' seatPrice='"+seatPrice+"'><span class='title'>"+data.seatList[index].seatLevel+"</span></button></button>"+"</td>";
 						}
 						index++;
 					}

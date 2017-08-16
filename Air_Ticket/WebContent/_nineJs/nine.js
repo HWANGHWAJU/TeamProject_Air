@@ -1441,6 +1441,7 @@ function fn_DepArrivalLookup(data){
 						   "</tr>";
 				}
 			}	
+				$("#FlightSearchList_tbody").empty();
 				$("#FlightSearchList_tbody").html(str);
 			
 		}
@@ -1498,6 +1499,7 @@ function fn_ScheduleLookup(data){
 							
 				}
 			}
+			$("#weekly_DepFlight_tbody").empty;
 			$("#weekly_DepFlight_tbody").html(owStr);
 			$("#divWeeklyResult_Dep").removeClass("hide");
 			
@@ -1525,7 +1527,7 @@ function fn_ScheduleLookup(data){
 							rtStr += "</tr>";
 					}		
 				}
-				
+				$("#weekly_ArrFlight_tbody").empty();
 				$("#weekly_ArrFlight_tbody").html(rtStr);
 				$("#divWeeklyResult_Arr").removeClass("hide");
 				
@@ -1578,6 +1580,7 @@ function fn_ScheduleLookup(data){
 								
 						}
 				}
+				$("#selectOne_ArrFlight_tbody").empty();
 				$("#selectOne_ArrFlight_tbody").html(rtStr);
 				$("#divSelectOneResult_Arr").removeClass("hide");
 				

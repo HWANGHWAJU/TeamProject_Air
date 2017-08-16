@@ -7,15 +7,15 @@
 
 
 <!-- jQuery libaray 추가 -->
-
-<!-- <script type="text/javascript" src="/js/common/jquery/jquery-1.8.3.min.js"></script> -->
+<!-- 
+<script type="text/javascript" src="/js/common/jquery/jquery-1.8.3.min.js"></script> -->
 
 <!-- jQuery 예약어 충동 방지 처리 -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 jQuery.noConflict();
-</script>9210
+</script>9210 -->
 
-<script type="text/javascript" src="/js/common/jquery/prototype.js"></script>
+<!-- <script type="text/javascript" src="/js/common/jquery/prototype.js"></script> -->
 
 
 
@@ -97,7 +97,7 @@ jQuery.noConflict();
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          downloadUrl('airline.xml', function(data) {
+          downloadUrl('./info/airline.xml', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName("marker");
           	var path = [];
@@ -144,7 +144,7 @@ jQuery.noConflict();
               var text = document.createElement('text');
               text.textContent = address
               infowincontent.appendChild(text);
-              var image = 'images/icons/airplane.png';
+              var image = './images/icons/airplane.png';
               
               var marker = new google.maps.Marker({
                 map: map,

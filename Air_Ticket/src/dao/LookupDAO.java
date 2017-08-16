@@ -21,6 +21,29 @@ public class LookupDAO {
 
 /*	스케줄 조회	*/	
 	
+	
+	// 항공 기종 조회
+	public String getPlaneType (Connection conn, String flightName) throws SQLException{
+		String sql = "";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			sql = "select planeemp_model from plane where plane_seat_flight_name = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, flightName);
+			
+			rs = pstmt.executeQuery();
+			
+			String flightType = "";
+			if(rs.next()) flightType = rs.getString("planeemp_model");
+			
+			return flightType;
+		}catch(Exception e){e.printStackTrace();}
+		return null;
+	}
+	
+	
 	// 1. 주간 조회 
 	public List<ScheduleLookupDTO> getScheduleSearch(Connection conn, int routeNum, String depDate, String arrDate) throws SQLException{
 		
@@ -41,7 +64,7 @@ public class LookupDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				list.add(convertSchedule(rs));
+				list.add(convertSchedule(conn, rs));
 			}
 		return list;
 		}catch(Exception e){e.printStackTrace();}
@@ -68,7 +91,7 @@ public class LookupDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				list.add(convertSchedule(rs));
+				list.add(convertSchedule(conn, rs));
 			}
 		return list;
 		}catch(Exception e){e.printStackTrace();}
@@ -76,7 +99,7 @@ public class LookupDAO {
 		
 	}
 	
-	public ScheduleLookupDTO convertSchedule(ResultSet rs) throws Exception{
+	public ScheduleLookupDTO convertSchedule(Connection conn, ResultSet rs) throws Exception{
 		
 		String[] days = null;
 		
@@ -107,7 +130,17 @@ public class LookupDAO {
 		
 //		Time term = rs.getTime("flightschedule_arr_time")-rs.getTime("flightschedule_dep_time");
 		
-		return new ScheduleLookupDTO(rs.getString("plane_seat_flight_name"), rs.getString("plane_seat_flight_name"), dep, arr, "시간 간격 ㅇㅅ ㅜ", Aday);
+		String flightName = rs.getString("plane_seat_flight_name");
+		String flightType = "";
+		try{
+			String sql = "select planeemp_model from plane where plane_seat_flight_name = '"+flightName+"'";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet flightTypers = pstmt.executeQuery();
+			
+			if(flightTypers.next()) flightType = flightTypers.getString("planeemp_model");
+		}catch(Exception e){ e.printStackTrace(); }
+		
+		return new ScheduleLookupDTO(flightName, flightType, dep, arr, "시간 간격 ㅇㅅ ㅜ", Aday);
 	}
 	 	
 /*	출도착 조회 	*/	

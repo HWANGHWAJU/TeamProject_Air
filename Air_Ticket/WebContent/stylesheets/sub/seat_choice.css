@@ -207,10 +207,10 @@ margin-right: 10px;
 	display : block;
 }
 
-.seat-middle .seat-table .front{
+.seat-middle .seat-table .Front{
 	background: url("../../images/booking/seat0_enter_seat.PNG"); 	
 }
-.seat-middle .seat-table .front span{
+.seat-middle .seat-table .Front span{
  
 	position: relative;
     display: block;
@@ -231,10 +231,10 @@ margin-right: 10px;
     text-indent: -1000px;
 }
 
-.seat-middle .seat-table .emergency {
+.seat-middle .seat-table .Emergency {
 	 background: url("../../images/booking/seat0_enter_seat.PNG"); 
 }
-.seat-middle .seat-table .emergency span{
+.seat-middle .seat-table .Emergency span{
 	position: relative;
     display: block;
     width: 26px;

@@ -60,70 +60,70 @@
 											</ul>
 											
 											<div class="tbl-input-row01 mgt25">
-												<table>
-													<caption id="CaptionFlightSearch1">출도착 조회 입력 표 | 노선별 조회, 출발일로 구성되어있습니다.</caption>
-													<colgroup>
-														<col style="width:18.2%">
-														<col>
-													</colgroup>
-													<tbody>
-														<tr height="57px">
-															<th scope="row"><label for="txtDepAirport"><span id="lblRouteDepArrSearch">노선별 조회</span></label></th>
-															<td colspan="3">
-																<div class="booking-journey js-radioLayer01-wrap">
-																	<div class="bookgin_input">
-																		<div class="booking js-radioLayer01">
-																			<input type="text" id="txtDepAirport" id="txtDepAirport" placeholder="출발지" title="출발지 입력" readonly="readonly" class="ui-autocomplete-input" autocomplete="off">
-																			<input type="hidden" id="hidDepAirport" value="">
-																			<input type="hidden" id="hidDepCity" value="">
-																			<input type="hidden" id="hidDepArea" value="">
-																			<input type="hidden" id="hidDepValue" value="">
-																			<button type="button" id="btnAirportLayerOpenDep" class="btn_booking js-radioLayer01-btn" data-target="#divBookingJourneyLayer"><span>출발지 팝업 열기</span></button>
-																			<div id="divDepAirportAC" class="booking-journey-autocomplete" style="top:0px;height:0px;z-index:100;"><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul></div>
-																		</div>
-																		<div class="booking js-radioLayer01">
-																			<input type="text" id="txtArrAirport" id="txtArrAirport" placeholder="도착지" title="도착지 입력" readonly="readonly">
-																			<input type="hidden" id="hidArrAirport" value="">
-																			<input type="hidden" id="hidArrCity" value="">
-																			<input type="hidden" id="hidArrArea" value="">
-																			<input type="hidden" id="hidArrValue" value="">
-																			<button type="button" id="btnAirportLayerOpenArr" class="btn_booking js-radioLayer01-btn" data-target="#divBookingJourneyLayer"><span>도착지 팝업 열기</span></button>
-																			<div id="divArrAirportAC" class="booking-journey-autocomplete" style="top:0px;height:0px;z-index:100;"></div>
-																		</div>
-																	</div>
-																	<div id="divBookingJourneyLayer" class="booking-journey-layer">
+												<table><!-- 
+												 --><caption id="CaptionFlightSearch1">출도착 조회 입력 표 | 노선별 조회, 출발일로 구성되어있습니다.</caption><!--
+													 --><colgroup><!--
+														 --><col style="width:18.2%"><!--
+														 --><col><!--
+													 --></colgroup><!--
+													 --><tbody><!--
+														 --><tr height="57px"><!--
+															 --><th scope="row"><label for="txtDepAirport"><span id="lblRouteDepArrSearch">노선별 조회</span></label></th><!--
+															 --><td colspan="3"><!--
+																 --><div class="booking-journey js-radioLayer01-wrap"><!--
+																 	--><div class="bookgin_input"><!--
+																		 --><div class="booking js-radioLayer01"><!--
+																			 --><input type="text" id="txtDepAirport" id="txtDepAirport" placeholder="출발지" title="출발지 입력" readonly="readonly" class="ui-autocomplete-input" autocomplete="off"><!--
+																			 --><input type="hidden" id="hidDepAirport" value=""><!--
+																			 --><input type="hidden" id="hidDepCity" value=""><!--
+																			 --><input type="hidden" id="hidDepArea" value=""><!--
+																			 --><input type="hidden" id="hidDepValue" value=""><!--
+																			 --><button type="button" id="btnAirportLayerOpenDep" class="btn_booking js-radioLayer01-btn" data-target="#divBookingJourneyLayer"><span>출발지 팝업 열기</span></button><!--
+																			 --><div id="divDepAirportAC" class="booking-journey-autocomplete" style="top:0px;height:0px;z-index:100;"><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul></div><!--
+																		 --></div><!--
+																		 --><div class="booking js-radioLayer01"><!--
+																			 --><input type="text" id="txtArrAirport" id="txtArrAirport" placeholder="도착지" title="도착지 입력" readonly="readonly"><!--
+																			 --><input type="hidden" id="hidArrAirport" value=""><!--
+																			 --><input type="hidden" id="hidArrCity" value=""><!--
+																			 --><input type="hidden" id="hidArrArea" value=""><!--
+																			 --><input type="hidden" id="hidArrValue" value=""><!--
+																			 --><button type="button" id="btnAirportLayerOpenArr" class="btn_booking js-radioLayer01-btn" data-target="#divBookingJourneyLayer"><span>도착지 팝업 열기</span></button><!--
+																			 --><div id="divArrAirportAC" class="booking-journey-autocomplete" style="top:0px;height:0px;z-index:100;"></div><!--
+																		 --></div><!--
+																	 --></div><!--
+																	 --><div id="divBookingJourneyLayer" class="booking-journey-layer"><!--
 																		<!-- 가는항공편, 오는항공편 선택시 hidden-title 명칭 변경되야함 접근성 -->
-																		<h2 class="hidden-title"></h2>
+																		 <h2 class="hidden-title"></h2><!--
 						
 						
-																		<div class="layer-close-area">
-																			<button type="button" class="layer-close"><span id="lblCloseBtn">닫기</span></button>
-																		</div>
-																	</div>
-																</div>
+																		 --><div class="layer-close-area"><!--
+																			 --><button type="button" class="layer-close"><span id="lblCloseBtn">닫기</span></button><!--
+																		 --></div><!--
+																	 --></div><!--
+																 --></div><!--
 																
-															</td>
-														</tr>
-														<tr>
-															<th scope="row"><label for="selDepDate1"><span id="lblDepDate">출발일</span></label></th>
-															<td colspan="3">
-																<div>
-																	<span class="selectbox01 js-selectbox01">
-																	    <span id="spanDepDate1" class="txt"></span>
+															 --></td><!--
+														 --></tr><!--
+														 --><tr><!--
+															 --><th scope="row"><label for="selDepDate1"><span id="lblDepDate">출발일</span></label></th><!--
+															 --><td colspan="3"><!--
+																 --><div><!--
+																	 --><span class="selectbox01 js-selectbox01"><!--
+																	    --> <span id="spanDepDate1" class="txt"></span><!--
 																	    
-																	    <select id="selDepDate1" title="출발일 선택" style="width: 228px;">
-																			<option></option>
-																	    </select>
+																	     --><select id="selDepDate1" title="출발일 선택" style="width: 228px;"><!--
+																			 --><option></option><!--
+																	     --></select><!--
 																	
-																	</span>
-																</div>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
+																	 --></span><!--
+																 --></div><!--
+															 --></td><!--
+														 --></tr><!--
+													 --></tbody><!--
+												 --></table><!--
+											 --></div><!--
 											
-											<div class="tbl-fot-info">
+											 --><div class="tbl-fot-info">
 												<div class="mgt30 tc">
 													<a id="btnSearch_Tab1" href="#none" class="btn-type01-col01"><span id="lblSearchBtn">조회</span></a>
 												</div>
@@ -231,7 +231,7 @@
 							</div>
 						</div>
 						
-						<div id="RealTimeDepArr_div" class="real-time-wrap mgt60">
+						<div id="RealTimeDepArr_div" class="real-time-wrap mgt60 hide"  >
 							<div class="table-title-wrap mgt40">
 								<h3 class="table-title-big mgr05"><span id="lblRealTimeDepArrInfo">실시간 출도착 정보</span></h3>
 								<span id="spanRealTimeDepArr_dateTime" class="title-date">2017.07.10(월) 11:02 기준</span>

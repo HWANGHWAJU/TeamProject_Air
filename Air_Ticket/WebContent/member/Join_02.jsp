@@ -188,7 +188,7 @@
 											</span> 
 											<span class="middle_txt">@</span> 
 											<span class="inp-txt mgr03">
-												<input type="text" name=""  style=" width: 168px;; ime-mode: disabled" id="txtEmailDomain" class="mustBeFilled" title="도메인 입력">
+												<input type="text" name="txtEmailDomain"  style=" width: 168px;; ime-mode: disabled" id="txtEmailDomain" class="mustBeFilled" title="도메인 입력">
 											</span>
 											<span class="selectbox01 js-selectbox01"> 
 											<span class="txt ex"></span> 
