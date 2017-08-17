@@ -82,8 +82,8 @@ public class ReservateDAO {
 		String sql = "";
 		PreparedStatement pstmt = null;
 		
-		int passengerSize = info.getPassengerList().size();
-		int seatSize = info.getBooking_optseat().size();
+//		int passengerSize = info.getPassengerList().size();
+//		int seatSize = info.getBooking_optseat().size();
 		
 
 		

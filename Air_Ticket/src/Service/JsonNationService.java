@@ -24,6 +24,7 @@ public class JsonNationService {
 		try(Connection conn = ConnectionProvider.getConnection()){
 		
 			conn.setAutoCommit(false);
+		
 			List<Map<String, Object>> maplist = dao.getNationNumber(conn);	// 디비에 저장되어 있는 취항지 공항의 나라에 대한 정보를 가져온다. 국가 번호, 국가 한글 명, 국가 영문 명
 			// List<num, nation_kor, nation_eng > 
 		
@@ -32,6 +33,7 @@ public class JsonNationService {
 			JsonArray jsDeplist = new JsonArray(); //필요한 모든 데이터를 JsonArray 함수로 변환하여 리턴
 			
 			for(int i=0; i<maplist.size(); i++){
+				
 				int n_num = (int)maplist.get(i).get("num");	//	1. list of map 에 저장되어 있는 국가 번호를 가져와 저장하고
 				String nation = (String)maplist.get(i).get("nation_kor"); // 2. 저장되어 있는 국가 한글 명을 저장한다    => 한 국가 안에 여러 개의 공항이 존재한다.
 				

@@ -446,7 +446,7 @@
 <script type="text/javascript">
 /* alert("d"); */
   function submit(){
-		alert("dddd");
+//		alert("dddd");
 		document.getElementById('memberInfo').submit();
 	}
 

@@ -376,7 +376,7 @@ function fn_CheckInAjax(memid){
 //						alert(btnId);
 						CheckStr += "<tr>"
 							+ "<td class='tc'>"
-							+ data[i].number
+							+ (i+1)
 							+ "</td>"
 							+ "<td class='tc'>"
 							+ data[i].name

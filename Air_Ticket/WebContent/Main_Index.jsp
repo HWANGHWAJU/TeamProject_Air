@@ -51,7 +51,7 @@
 		<div id="headerContent">
 			<div class="hgroup" style="display:block;">
 			 	<h1 class="logo">
-			 	<a href="mainIndex.bo"><img src="./images/common/img_logo01.png" alt="AIR NINE"></a></h1>
+			 	<a href="mainIndex.bo"><img src="./images/common/logo (2).png" alt="AIR NINE"></a></h1>
 	
 	
 				 <div class="hrgroup" id="flagLogin">
@@ -72,7 +72,7 @@
 				 		<a href="#this">마이 페이지</a>
 				 		<ul class="hrgroup-list">
 				 			<li><a href="Mystamp.me">나의 스탬프</a></li>
-				 			<li><a href="MemberModify.me?member_id=<%=id%>">회원정보 수정</a></li>
+				 			<li><a href="#this">회원정보 수정</a></li>
 				 			<li><a href="MemberLogout.me">로그아웃</a></li>
 				 			<li><a href="#this">회원 탈퇴</a></li>
 				 		</ul>
@@ -95,7 +95,7 @@
 				
 				<div id="smallHeader" style="display:none; top:-40px;">
 					<div class="small-head">
-						<h1 class="logo"><a href="mainIndex.bo"><img src="./images/common/img_logo02.png" alt="AIR WILL"></a></h1>
+						<h1 class="logo"><a href="mainIndex.bo"><img src="./images/common/smallLogo.jpg" alt="AIR WILL"></a></h1>
 					</div>
 				</div>
 					
@@ -127,7 +127,7 @@
 			                              <form name="reservationList2" action="viewReservationList.bo" method="POST">
 			                                <input type="hidden" name="viewReservationList2" value="viewReservationList.bo">
 			                              </form>
-						           <a href="javascript:document.reservationList2.submit();">예약 조회/변경/환불</a>
+						           <a href="javascript:document.reservationList2.submit();">예약 조회</a>
 						       </li>
 					       <li class="depth02Lists">
 			                              <form name="checkInList" action="viewCheckInList.bo" method="POST">
@@ -149,9 +149,9 @@
 							       <li class="depth02Lists">
 						           <a href="#this">공항 서비스</a>
 						       </li>
-							       <li class="depth02Lists">
+					<!-- 		       <li class="depth02Lists">
 						           <a href="Info_seat.bo">기내 서비스</a>
-						           </li>
+						           </li> -->
 						       <li class="depth02Lists">
 						           <a href="Info_map.bo">항공 노선도</a>
 						       </li>
@@ -174,7 +174,7 @@
 						       </li>
 		 			</ul>
 	 		</li>
-			          <li class="depth01Lists">
+		<!-- 	          <li class="depth01Lists">
 		     <a href="Event_Main.bo">이벤트/새소식</a>
 				<ul class="depth02" style="display: none;">
 	    			       <li class="depth02Lists">
@@ -190,7 +190,28 @@
 						           <a href="#this">미디어룸</a>
 						       </li>
 				</ul>
+	 		</li> -->
+				
+					          <li class="depth01Lists">
+		     <a href="Event_Main.bo">이벤트/새소식</a>
+				<ul class="depth02" style="display: none;">
+	    			       <li class="depth02Lists">
+						           <a href="Event_Main.bo">이벤트</a>
+						       </li>
+							    <li class="depth02Lists">
+						           <a href="boardList.bo">공지사항</a>
+						       </li>
+	      				       <li class="depth02Lists">
+						           <a href="#this">사용후기</a>
+						       </li>
+						       <li class="depth02Lists">
+						           <a href="#this">Q & A </a>
+						       </li>
+				</ul>
 	 		</li>
+				
+				
+				
 					
 		</ul>
 	</div>
@@ -350,21 +371,21 @@ if(WrapClass == "booking booking-step-on"){
 	                
 	                
 	                <div class="footer_utilMenu_box clear_fix">
-		                <h1 class="footer_logo"><a href="#link"><img src="images/common/img_footer_logo02.png" alt="AIR SEOUL"></a></h1>
+		                <h1 class="footer_logo"><a href="#link"><img src="images/common/logoDown (2).png" alt="AIR NINE"></a></h1>
 		                <div class="footer-info-box">
-                            <span><a href="/CW/ko/site_map.do" class="btn-type04-col01 mgr5"><!-- 사이트맵 -->사이트맵</a></span>
-                            <span><a href="/CW/ko/faqList.do" class="btn-type04-col01 mgr5"><!-- 자주하는 질문 -->자주묻는질문</a></span>
-                            <span><a href="javascript:loginCheck('qna');" class="btn-type04-col01 mgr5"><!-- 1:1문의 -->1:1 문의</a></span>
-                            <span><a href="https://www.facebook.com/AirSeoul" target="_blank" title="Facebook  바로가기 [새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_facebook.png" alt="facebook"></a></span>
-                            <span><a href="https://www.instagram.com/airseoul_official/" target="_blank" title="인스타그램 바로가기 [새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_instagram.png" alt="instagram"></a></span>
-                            <span><a href="https://www.youtube.com/airseoul" target="_blank" title="유투브 홈페이지 바로가기[새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_youtube.png" alt="youtube"></a></span>
+                            <span><a href="#this" class="btn-type04-col01 mgr5"><!-- 사이트맵 -->사이트맵</a></span>
+                            <span><a href="#this" class="btn-type04-col01 mgr5"><!-- 자주하는 질문 -->자주묻는질문</a></span>
+                            <span><a href="#this" class="btn-type04-col01 mgr5"><!-- 1:1문의 -->1:1 문의</a></span>
+                            <span><a href="#this" target="_blank" title="Facebook  바로가기 [새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_facebook.png" alt="facebook"></a></span>
+                            <span><a href="#this" target="_blank" title="인스타그램 바로가기 [새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_instagram.png" alt="instagram"></a></span>
+                            <span><a href="#this" target="_blank" title="유투브 홈페이지 바로가기[새창열림]" class="btn-type04-col05 mgr5"><img src="images/common/f_icon_youtube.png" alt="youtube"></a></span>
                         </div>
                     </div> <!-- footer uitlMenu -->
                     
 					<div class="footer-address"> 
 	                    <div class="footer-info-lists">
-	                        <span><!-- 에어서울 주식회사 대표이사 류광희 -->에어서울 주식회사 대표이사 류광희</span>
-	                        <span><!-- (우)03185 서울특별시 종로구 새문안로 76 금호아시아나 본관 -->(우)03185 서울특별시 종로구 새문안로 76 금호아시아나 본관</span>
+	                        <span><!-- 에어나인 주식회사 대표이사 류광희 -->에어나인 주식회사 대표이사 에어엔구네</span>
+	                        <span><!-- (우)03185 서울특별시 종로구 새문안로 76 금호아시아나 본관 -->(우)12345 부산시 부산진구 동천도 109 삼한 골든게이트</span>
 	                    </div>
 	                    <div class="footer-info-lists">
 	                        <span><!-- 국제선 예약 1800-8100 -->국제선 예약 1800-8100</span><!-- 2016-08-05 추가 -->
@@ -377,7 +398,7 @@ if(WrapClass == "booking booking-step-on"){
 	                        
 	                        <span><!-- 개인정보관리책임자 경영본부장 상무 조진만 -->개인정보보호책임자 경영본부장 조진만</span>
 	                    </div>
-	                    <p class="copyright">ⓒ AIR SEOUL, Inc. All Rights Reserved.</p>
+	                    <p class="copyright">ⓒ AIR NINE, Inc. All Rights Reserved.</p>
 	                </div> <!-- footer address -->
 				</div> <!-- foonter -->
 			</div>

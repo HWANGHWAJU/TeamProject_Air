@@ -54,9 +54,9 @@
 										<div class="subtab_content">
 											<!-- 내용 -->
 											<ul class="uList01">
-												<li id="lblFlightSearch_info1">오늘 기준으로 2일 전까지의 에어서울 항공편 출도착 정보를 확인하실 수 있습니다.</li>
+												<li id="lblFlightSearch_info1">오늘 기준으로 2일 전까지의 에어나인 항공편 출도착 정보를 확인하실 수 있습니다.</li>
 												<li id="lblFlightSearch_info2">출/도착 일자 및 시간은 현지시간 기준이므로 현지 기준 날짜와 시간으로 조회하여 주십시오.</li>
-												<li id="lblFlightSearch_info3">에어서울 운항 항공편에 한하여 출도착 조회가 가능하며, 공동 운항편 또는 외항사의 출도착 정보는 해당 항공사 홈페이지에서 조회하시기 바랍니다.</li>
+												<li id="lblFlightSearch_info3">에어나인 운항 항공편에 한하여 출도착 조회가 가능하며, 공동 운항편 또는 외항사의 출도착 정보는 해당 항공사 홈페이지에서 조회하시기 바랍니다.</li>
 											</ul>
 											
 											<div class="tbl-input-row01 mgt25">
@@ -140,9 +140,9 @@
 										<div class="subtab_content">
 											<!-- 내용 -->											
 											<ul class="uList01">
-												<li id="lblFlightSearch_info1">오늘 기준으로 2일 전까지의 에어서울 항공편 출도착 정보를 확인하실 수 있습니다.</li>
+												<li id="lblFlightSearch_info1">오늘 기준으로 2일 전까지의 에어나인 항공편 출도착 정보를 확인하실 수 있습니다.</li>
 												<li id="lblFlightSearch_info2">출/도착 일자 및 시간은 현지시간 기준이므로 현지 기준 날짜와 시간으로 조회하여 주십시오.</li>
-												<li id="lblFlightSearch_info3">에어서울 운항 항공편에 한하여 출도착 조회가 가능하며, 공동 운항편 또는 외항사의 출도착 정보는 해당 항공사 홈페이지에서 조회하시기 바랍니다.</li>
+												<li id="lblFlightSearch_info3">에어나인 운항 항공편에 한하여 출도착 조회가 가능하며, 공동 운항편 또는 외항사의 출도착 정보는 해당 항공사 홈페이지에서 조회하시기 바랍니다.</li>
 											</ul>											
 											<div class="tbl-input-row01 mgt40">
 												<table>

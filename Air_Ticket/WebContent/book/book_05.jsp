@@ -556,7 +556,7 @@ $(document).ready(function(){
 	
 });
 function fn_Confirm(){
-	alert("다 작성 되었는지 확인하는 함수 짜기");
+//	alert("다 작성 되었는지 확인하는 함수 짜기");
 }
 /* function jsRadiobox01(){
     $(".js-radiobox01").find("input").each(function(i, radio){

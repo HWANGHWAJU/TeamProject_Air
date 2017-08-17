@@ -54,7 +54,7 @@
                 <!-- 내용 -->
                 <div class="area-service">
                     <div class="box-info type-dutyfree">
-                        <p>에어서울의 기내에서 합리적인 가격으로 화장품, 주류 등 면세품을 구매하실 수 있습니다.</p>
+                        <p>에어나인의 기내에서 합리적인 가격으로 화장품, 주류 등 면세품을 구매하실 수 있습니다.</p>
                     </div>
                     <h2 class="table-title-big mgt50"><!-- 기내면세품 결제 -->기내면세품 결제</h2>
                     <ul class="uList01">

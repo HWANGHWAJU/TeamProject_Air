@@ -165,19 +165,12 @@ public class stampDAO {
 				
 //			String nation = rs.getString("naton_kor");
 				
-				if(nation.equals("대한민국")){
-				upStamp += 1;
-				}else if(nation.equals("일본")){
-				upStamp += 2;
-				}else if(nation.equals("중국")){
-				upStamp += 2;
-				}else if(nation.equals("미국")){
-				upStamp += 4;
-				}else if(nation.equals("캄보디아")){
-				upStamp += 3;
-				}else if(nation.equals("말레이시아")){
-				upStamp += 3;
-				}
+				if(nation.equals("대한민국")){ 	upStamp += 1; 	}
+				else if(nation.equals("일본")){ 	upStamp += 2; 	}
+				else if(nation.equals("중국")){ 	upStamp += 2;	}
+				else if(nation.equals("미국")){	upStamp += 4;	}
+				else if(nation.equals("캄보디아")){ upStamp += 3;	}
+				else if(nation.equals("말레이시아")){ 	upStamp += 3;	}
 				
 			return upStamp;
 			}

@@ -56,7 +56,7 @@ if(user != null) memId = user.getMember_id();
 								</h2>
 								<div class="tab_content country">
 									<!-- 온라인 예약내역 (S) -->
-									<p id="noti1">에어서울 홈페이지 및 모바일에서 구매하신 항공권만 조회가 가능합니다.</p>
+									<p id="noti1">에어나인 홈페이지 및 모바일에서 구매하신 항공권만 조회가 가능합니다.</p>
 									
 									<!-- 2016-04-01 추가 (S) -->
 									<div class="tbl-input-row01 mgt20">
@@ -243,7 +243,7 @@ if(user != null) memId = user.getMember_id();
 								<h2 class="tab_title"><a href="#none" id="OfflineReservationTab">오프라인 예약조회</a></h2>
 								<div class="tab_content country">
 									<!-- 오프라인 예약내역 컨텐츠 (S) -->
-									<p id="noti7">에어서울 예약센터에서 예약하신 내역 조회가 가능합니다.</p>
+									<p id="noti7">에어나인 예약센터에서 예약하신 내역 조회가 가능합니다.</p>
 									<div class="tbl-input-row01 mgt20">
 										<table>
 											<caption id="noti8">오프라인 예약내역 데이터 표 | 영문성명, 예약번호, 예약여정, 탑승일로 구성되어있습니다.</caption>
@@ -490,8 +490,8 @@ $("#btnOnlineConfirm").click(function() { //확인버튼을 클릭했을때...
 								+ "<td class='tc'>"
 								+ data[i].seat
 								+ "</td>"
-								+ "<td class='tc'>"
-								+ data[i].check
+								+ "<td class='tc' colspan='2' data='"+data[i].check+"'>탑승 가능"
+								
 								+ "</td>" +
 
 								"</tr>";
@@ -512,8 +512,8 @@ $("#btnOnlineConfirm").click(function() { //확인버튼을 클릭했을때...
 								+ "<td class='tc'>"
 								+ data[i].seat
 								+ "</td>"
-								+ "<td class='tc'>"
-								+ data[i].check
+								+ "<td class='tc' colspan='2' data='"+data[i].check+"'>탑승 가능"
+								
 								+ "</td>" +
 
 								"</tr>";
@@ -612,31 +612,6 @@ $(".btnJourney").on("click", function() {
 	}
 });
 
-/* $("#onlineDatePicker2").datepicker({
-	minDate : moment().toDate(),
-	maxDate : moment().add(323,'days').endOf('month').toDate(),
-	numberOfMonths : 2,
-	onSelect : function(valueDate,key){
- 			alert("key :"+$(this).attr("class") +" valueDate: "+valueDate); 
-		var d = moment(valueDate).format("YYYY.MM.DD");
-		alert(d);
-		$("#txtOnlineDepartureDate2").val(d);
-		$("#onlineBookingDateLayer2").slideUp(1); 
-	}
-});
-
-$("#onlineDatePicker3").datepicker({
-	minDate : moment().toDate(),
-	maxDate : moment().add(323,'days').endOf('month').toDate(),
-	numberOfMonths : 2,
-	onSelect : function(valueDate,key){
- 			alert("key :"+$(this).attr("class") +" valueDate: "+valueDate); 
-		var d = moment(valueDate).format("YYYY.MM.DD");
-		alert(d);
-		$("#txtOnlineDepartureDate3").val(d);
-		$("#onlineBookingDateLayer3").slideUp(1); 
-	}
-}); */
 
 $(".btn_booking").on("click", function(){
 var $this = $(this);

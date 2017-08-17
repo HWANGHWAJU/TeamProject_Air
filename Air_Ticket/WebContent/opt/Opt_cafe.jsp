@@ -55,7 +55,7 @@
                 <!-- 내용 -->
                 <div class="area-service">
                     <div class="box-info type-cafe-mint">
-                        <p>에어서울 Café Mint에서는 기내에서 드실 수 있는 음료와 스낵, 다용도로 사용할 수 있는 쿠션 담요 등 기념품을 판매하고 있으니 편리하게 이용하시기 바랍니다.</p>
+                        <p>에어나인 Café Mint에서는 기내에서 드실 수 있는 음료와 스낵, 다용도로 사용할 수 있는 쿠션 담요 등 기념품을 판매하고 있으니 편리하게 이용하시기 바랍니다.</p>
                     </div>
                     <h2 class="table-title-big mgt50"><!-- 이용 안내 -->이용 안내</h2>
                     <ul class="uList01">
@@ -69,7 +69,7 @@
                     <h2 class="table-title-big mgt50"><!-- 주의 사항 -->주의사항</h2>
                     <ul class="uList01">
                         <li><!-- 20160920 추가 -->특정 식품에 대한 알레르기 또는 유사 증상이 있는 손님께서는  사전에  상품을  확인하여 주시기 바랍니다.</li>
-                        <li><!-- 20160920 추가 -->땅콩 알레르기 및 유사 증상이 있는 손님 안내 : 에어서울 기내에서는 땅콩 성분이 함유된 제품을 제공할 수 있고, 다른 손님의 땅콩 소지 및 취식을 제한할 수 없습니다.  해당 손님께서는 여행 전 의사와 여행 계획에 대해 상의해 주시기 바랍니다. </li>
+                        <li><!-- 20160920 추가 -->땅콩 알레르기 및 유사 증상이 있는 손님 안내 : 에어나인 기내에서는 땅콩 성분이 함유된 제품을 제공할 수 있고, 다른 손님의 땅콩 소지 및 취식을 제한할 수 없습니다.  해당 손님께서는 여행 전 의사와 여행 계획에 대해 상의해 주시기 바랍니다. </li>
                     </ul>
                     <p class="btn-cafe-mint mgt20 tr"><a href="/CW/public/file/cafe-mint.pdf" class="btn-type02-col02" target="_blank" style="background-color:#e11b72 !important;color:#fff;font-weight:bold;" title="">Café Mint 메뉴 자세히 보기</a></p>
                 </div>

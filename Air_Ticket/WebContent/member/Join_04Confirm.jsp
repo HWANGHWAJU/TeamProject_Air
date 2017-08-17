@@ -213,7 +213,7 @@
 <script>
 
  function submit() {
-	alert("수정완료");
+	//alert("수정완료");
 	document.getElementById("joinInfo").submit();
 	 
 }

@@ -1469,7 +1469,7 @@ function fn_ScheduleLookup(data){
 		contextType : "application/x-www-form-urlencoded; charset=UTF-8",
 		data : {LookupData : str},
 		success : function(data){
-			alert("d");
+	//		alert("d");
 			console.log(data);
 	
 		if(condition == "radWeekly"){	
@@ -1857,7 +1857,7 @@ function goSelectSchedule(Object){
 /*	Book_04.jsp 에 셋팅	*/
 
 function ShowBookingCondition(data){
-	alert("Show Booking Condition");
+//	alert("Show Booking Condition");
 	// 인원 수 
 	var $txtAdult = $("#Summary_ADT");
 	var $txtChild = $("#Summary_CHD");

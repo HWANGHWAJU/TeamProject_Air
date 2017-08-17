@@ -13,6 +13,7 @@ import air.page.action.Action;
 import air.page.action.ActionForward;
 import air.page.action.MypagestapmAction;
 import air.page.action.WeatherAction;
+
 import air.schedule.action.JsonDepArrivalLookupAction;
 import air.schedule.action.JsonGoAdditionalChoiceAction;
 import air.schedule.action.JsonGoPassengerAction;
@@ -38,7 +39,8 @@ public class AirPageController extends javax.servlet.http.HttpServlet implements
 		ActionForward forward = null;
 		Action action = null;
 		System.out.println("*****************************************************");
-			
+	
+		
 		HttpSession sess = request.getSession();
 		LoginUser user = (LoginUser) sess.getAttribute("User");
 		
@@ -318,7 +320,6 @@ public class AirPageController extends javax.servlet.http.HttpServlet implements
 			SJsonAction jsonaction = new JsonDepArrivalLookupAction();
 			jsonaction.execute(request, response);
 		}
-		
 		
 		
 	if(forward != null){

@@ -40,7 +40,7 @@
                 <div class="area-company">
                     <div class="area-ceo">
                         <p class="img_represent">
-                            <img src="images/company/img_airseoul.png" alt="에어서울 류광희 대표"><!-- 에어서울 대표 류광희 -->
+                            <img src="images/company/img_airseoul.png" alt="에어나인 류광희 대표"><!-- 에어나인 대표 류광희 -->
                         </p>
                         <p class="tit"><!-- <img src="/CW/public/images/company/img_txt01.png" alt=""> -->‘부산’ 브랜드에 걸맞은 한국 대표 항공사,<br>에어나인이 되겠습니다.</p>
                         <div class="box-ceo">
